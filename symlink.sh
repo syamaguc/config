@@ -4,24 +4,7 @@
 find . -name ".DS_Store" | xargs rm -rf
 
 # Default
-PROGRAMS=(common git vim)
-BACKUPS=(.bash_profile .bashrc .bash_logout .zshrc .ssh .tmux.conf .profile .config)
-
-# OS specific
-if [ "$(uname)" == 'Darwin' ]; then
-	echo "Mac OS Setting"
-	PROGRAMS+=(mac)
-elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
-	if [ "$(expr substr $(cat /etc/*-release | grep "^NAME=") 7 6)" == 'Ubuntu' ]; then
-		echo "Ubuntu Setting"
-		PROGRAMS+=(ubuntu)
-	fi
-elif [ "$(expr substr $(uname -s) 1 10)" == 'MINGW32_NT' ]; then
-	echo "Windows Setting"
-	PROGRAMS+=(windows)
-else
-	echo " I don't know this OS"
-fi
+BACKUPS=(.config .bashrc .bash_logout .zshrc .vimrc .bash_profile .zprofile .profile .xprofile .xinitrc)
 
 # helper function
 function backup_if_exists() {
@@ -35,23 +18,38 @@ function backup_if_exists() {
     fi
 }
 
+function backup_to_default() {
+    if [ -f "$1.bk" ];
+    then
+      mv "$1.bk" $1
+    fi
+    if [ -d "$1.bk" ];
+    then
+      mv "$1.bk" $1
+    fi
+}
+
 # Clean up all symlinks
 if [ "$1" == "clean" ]; then
-    for program in ${PROGRAMS[@]}; do
-      stow -vD $program
-      echo "clean up $program"
+    declare -a SYMLINKS=(`ls -a1`)
+    for link in ${SYMLINKS[@]}; do
+      stow -Dv $link
+      echo "clean up $link"
     done
-    echo "Clean up all"
-    exit 0
+    for backup in ${BACKUPS[@]}; do
+      backup_to_default ~/$backup
+      echo "Reset $backup"
+    done
+else
+    # backup & symlink
+    for backup in ${BACKUPS[@]}; do
+      backup_if_exists ~/$backup
+      echo "Backup $backup"
+    done
+    
+    for program in $@; do
+      stow -v $program
+      echo "Setting up $program"
+    done
 fi
 
-# execute
-for backup in ${BACKUPS[@]}; do
-  backup_if_exists ~/$backup
-  echo "Backup $backup"
-done
-
-for program in ${PROGRAMS[@]}; do
-  stow -v $program
-  echo "Setting up $program"
-done

@@ -1,0 +1,175 @@
+# ==================================== #
+# => General settings
+# ==================================== #
+
+# set modifier
+set $superL Mod3
+set $superR Mod4
+set $alt Mod1
+
+set $ws1 "1: Home"
+set $ws2 "2: Dev"
+set $ws3 "3: Firefox"
+set $ws4 "4: Chromium"
+set $ws5 "5: "
+set $ws6 "6: "
+set $ws7 "7: "
+set $ws8 "8: "
+set $ws9 "9: "
+
+# set font
+font pango: Noto Sans 8
+
+# autostart
+# exec --no-startup-id picom --config ~/.config/picom/picom.conf
+# exec_always --no-startup-id autotiling
+
+# ==================================== #
+# => Mode settings
+# ==================================== #
+
+# toggle tiling / floating
+bindsym $superL+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $superL+Shift+space focus mode_toggle
+
+# Use Mouse+$superR to drag floating windows to their wanted position
+floating_modifier $superL
+
+# ==================================== #
+# => Key bindings
+# ==================================== #
+
+# kill focused window
+bindsym $superR+d kill
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $superR+Shift+r restart
+
+# start a terminal
+bindsym $superL+Return exec i3-sensible-terminal
+
+# start dmenu & rofi (a program launcher)
+bindsym $superR+f exec rofi -lines 12 -padding 18 -width 60 -location 0 -show window -sidebar-mode -columns 3 -font 'Noto Sans 18'
+bindsym $superR+Shift+f exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Noto Sans 18'
+
+#bindsym $mod+d exec "dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'monospace-10' -p 'dmenu%'"
+
+# common apps keybinds
+bindsym $superR+w exec firefox
+
+# change focus like vim
+bindsym $superL+h focus left
+bindsym $superL+j focus down
+bindsym $superL+k focus up
+bindsym $superL+l focus right
+
+# move focused window
+bindsym $superL+Shift+h move left
+bindsym $superL+Shift+j move down
+bindsym $superL+Shift+k move up
+bindsym $superL+Shift+l move right
+
+# enter fullscreen mode for the focused container
+bindsym $superR+Escape fullscreen toggle
+
+# change container layout split
+bindsym $superR+s layout toggle
+
+# change split orientation
+bindsym $superL+o split toggle
+# bindsym $superL+h split h
+# bindsym $superL+v split v
+
+# switch to workspace
+bindsym $superR+1 workspace $ws1
+bindsym $superR+2 workspace $ws2
+bindsym $superR+3 workspace $ws3
+bindsym $superR+4 workspace $ws4
+bindsym $superR+5 workspace $ws5
+bindsym $superR+6 workspace $ws6
+bindsym $superR+7 workspace $ws7
+
+# move focused container to workspace
+bindsym $superR+Shift+1 move container to workspace $ws1
+bindsym $superR+Shift+2 move container to workspace $ws2
+bindsym $superR+Shift+3 move container to workspace $ws3
+bindsym $superR+Shift+4 move container to workspace $ws4
+bindsym $superR+Shift+5 move container to workspace $ws5
+bindsym $superR+Shift+6 move container to workspace $ws6
+bindsym $superR+Shift+7 move container to workspace $ws7
+
+# Screenshot
+bindsym $superL+y           exec --no-startup-id flameshot gui -p ~/Pictures/screenshots
+bindsym $superL+Shift+y     exec --no-startup-id flameshot full -p ~/Pictures/screenshots
+
+
+
+# ==================================== #
+# => Resize mode settings
+# ==================================== #
+bindsym $superR+r mode "resize"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        bindsym Left resize shrink width 50 px or 50 ppt
+        bindsym Down resize grow height 50 px or 50 ppt
+        bindsym Up resize shrink height 50 px or 50 ppt
+        bindsym Right resize grow width 50 px or 50 ppt
+        
+	# back to normal: Enter or Escape or Mod1+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym Mod1+r mode "default"
+}
+
+# panel
+bar {
+  		colors {
+  		  background #282A36
+  		  statusline #F8F8F2
+  		  separator  #44475A
+
+  		  focused_workspace  #44475A #44475A #F8F8F2
+  		  active_workspace   #282A36 #44475A #F8F8F2
+  		  inactive_workspace #282A36 #282A36 #BFBFBF
+  		  urgent_workspace   #FF5555 #FF5555 #F8F8F2
+  		  binding_mode       #FF5555 #FF5555 #F8F8F2
+  		}
+        font pango:DejaVu Sans Mono 13
+        status_command i3status
+}
+
+# window rules, you can find the window class using xprop
+assign [class="Alacritty"]          → $ws2
+assign [class="Firefox"]            → $ws3
+assign [class="Chromium"]           → $ws4
+
+
+# colour of border, background, text, indicator, and child_border
+# dracula ===>     https://github.com/dracula/i3
+
+client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
+client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
+client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
+client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
+client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
+client.background       #F8F8F2
+
+
+
+# Only enable gaps on a workspace when there is at least one container
+# smart_gaps on
+#
+# # Only enable outer gaps when there is exactly one container
+# smart_gaps inverse_outer
+#
+# Activate smart borders (always)
+# smart_borders on
+#
+# # Activate smart borders (only when there are effectively no gaps)
+# smart_borders no_gaps
+# Hide edge borders only if there is one window with no gaps
+# hide_edge_borders smart_no_gaps
+#
