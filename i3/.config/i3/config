@@ -51,8 +51,8 @@ bindsym $superR+Shift+r restart
 bindsym $superL+Return exec i3-sensible-terminal
 
 # start dmenu & rofi (a program launcher)
-bindsym $superR+f exec rofi -lines 12 -padding 18 -width 60 -location 0 -show window -sidebar-mode -columns 3 -font 'Noto Sans 18'
-bindsym $superR+Shift+f exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Noto Sans 18'
+bindsym $superR+Shift+f exec rofi -lines 12 -padding 18 -width 60 -location 0 -show window -sidebar-mode -columns 3 -font 'Noto Sans 18'
+bindsym $superR+f exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Noto Sans 18'
 
 #bindsym $mod+d exec "dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'monospace-10' -p 'dmenu%'"
 
