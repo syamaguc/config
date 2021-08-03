@@ -1,29 +1,29 @@
-#!/usr/bin/env bash
+#!/usr/bin/sh
 
 # Dont link DS_Store files
 find . -name ".DS_Store" | xargs rm -rf
 
 # Default
-BACKUPS=(.config .bashrc .bash_logout .zshrc .vimrc .bash_profile .zprofile .profile .xprofile .xinitrc)
+BACKUPS=(.config .bashrc .bash_logout .zshrc .vimrc .bash_profile .zprofile .profile .xprofile .xinitrc .tmux.conf)
 
 # helper function
 function backup_if_exists() {
-    if [ -f $1 ];
+    if [ -f $1 ] && [ ! -L $1 ];
     then
       mv $1 "$1.bk"
     fi
-    if [ -d $1 ];
+    if [ -d $1 ] && [ ! -L $1 ];
     then
       mv $1 "$1.bk"
     fi
 }
 
 function backup_to_default() {
-    if [ -f "$1.bk" ];
+    if [ -f "$1.bk" ] && [ ! -L "$1.bk" ];
     then
       mv "$1.bk" $1
     fi
-    if [ -d "$1.bk" ];
+    if [ -d "$1.bk" ] && [ ! -L "$1.bk" ];
     then
       mv "$1.bk" $1
     fi
@@ -31,9 +31,9 @@ function backup_to_default() {
 
 # Clean up all symlinks
 if [ "$1" == "clean" ]; then
-    declare -a SYMLINKS=(`ls -a1`)
+    declare -a SYMLINKS=(`ls -a1 | grep -v symlink.sh | grep -v setup.sh | grep -v "\."`)
     for link in ${SYMLINKS[@]}; do
-      stow -Dv $link
+	  stow -Dv $link
       echo "clean up $link"
     done
     for backup in ${BACKUPS[@]}; do
@@ -46,7 +46,6 @@ else
       backup_if_exists ~/$backup
       echo "Backup $backup"
     done
-    
     for program in $@; do
       stow -v $program
       echo "Setting up $program"

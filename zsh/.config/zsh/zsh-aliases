@@ -39,6 +39,10 @@ esac
 # tmux
 # --------------------------
 
+alias tls='tmux ls'
+alias tkill='tmux kill-session -t'
+alias ide='bash $HOME/bin/ide.sh'
+
 # --------------------------
 # Grep
 # --------------------------

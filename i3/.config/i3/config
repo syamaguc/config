@@ -45,7 +45,7 @@ floating_modifier $superL
 bindsym $superR+d kill
 
 # shutdown menu in rofi
-bindsym $superR+q exec bash $HOME/config/bin/power.sh
+bindsym $superR+q exec bash $HOME/bin/power.sh
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $superR+Shift+r restart

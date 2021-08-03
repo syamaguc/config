@@ -72,7 +72,7 @@ case ${info[0]} in
         if [[ ${info[1]} == "Mac" ]]; then
             echo "start ${info[0]} ${info[1]} ${info[2]} setting..."
             bash script/setup-mac-arm64.sh
-            bash symlink.sh git zsh vim alacritty karabiner
+            bash symlink.sh git zsh vim tmux alacritty bin
         elif [[ ${info[1]} == "" ]]; then
             echo ""
         else
