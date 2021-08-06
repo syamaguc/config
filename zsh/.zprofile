@@ -5,7 +5,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # if you want to use ohmyzsh, comment out and
 # cp ./oh_my_zsh/template/template .zshrc
 export ZDOTDIR=$HOME/.config/zsh
-
+export TERM='xterm-256color'
 
 
 # tmux auto start
