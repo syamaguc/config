@@ -41,6 +41,7 @@ esac
 
 alias tls='tmux ls'
 alias tkill='tmux kill-session -t'
+alias tattach='tmux a -t'
 alias ide='bash $HOME/bin/ide.sh'
 
 # --------------------------
@@ -93,6 +94,12 @@ dup() { docker-compose up -d;  }
 dupr() { docker-compose up -d --build; }
 ddown() { docker-compose down; }
 alias dl="docker ps -l -q"
+
+# 42 norm
+function norminette() {
+    docker run --rm -v $PWD:/code tkomatsu/norminette /code/$1
+}
+
 
 # --------------------------
 # C/C++
