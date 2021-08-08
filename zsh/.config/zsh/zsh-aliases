@@ -38,10 +38,10 @@ esac
 # --------------------------
 # tmux
 # --------------------------
-
 alias tls='tmux ls'
 alias tkill='tmux kill-session -t'
-alias tattach='tmux a -t'
+alias ta='tmux a -t'
+alias tnew='tmux new -s'
 alias ide='bash $HOME/bin/ide.sh'
 
 # --------------------------
