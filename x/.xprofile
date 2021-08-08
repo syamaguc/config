@@ -1,6 +1,3 @@
-# Status Bar
-# dwmblocks &
-
 # Random Photo Every Login
 feh --bg-fill --randomize ~/Pictures/Wallpaper/* &
 
@@ -39,14 +36,6 @@ picom -b
 
 # Screenshots
 flameshot &
-
-# Bluetooth systray icon
-# blueman-applet &
-
-# helps with puls audio
-# pasystray &
-
-# Easy file sharing
 
 # load Xresources
 xrdb ~/.Xresources

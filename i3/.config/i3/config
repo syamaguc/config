@@ -20,10 +20,6 @@ set $ws9 "9: "
 # set font
 font pango: Noto Sans 8
 
-# autostart
-# exec --no-startup-id picom --config ~/.config/picom/picom.conf
-# exec_always --no-startup-id autotiling
-
 # ==================================== #
 # => Mode settings
 # ==================================== #
@@ -144,12 +140,6 @@ bar {
         status_command i3status
 }
 
-# window rules, you can find the window class using xprop
-assign [class="Alacritty"]          → $ws2
-assign [class="Firefox"]            → $ws3
-assign [class="Chromium"]           → $ws4
-
-
 # colour of border, background, text, indicator, and child_border
 # dracula ===>     https://github.com/dracula/i3
 
@@ -158,21 +148,4 @@ client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
 client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
 client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
 client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
-client.background       #F8F8F2
 
-
-
-# Only enable gaps on a workspace when there is at least one container
-# smart_gaps on
-#
-# # Only enable outer gaps when there is exactly one container
-# smart_gaps inverse_outer
-#
-# Activate smart borders (always)
-# smart_borders on
-#
-# # Activate smart borders (only when there are effectively no gaps)
-# smart_borders no_gaps
-# Hide edge borders only if there is one window with no gaps
-# hide_edge_borders smart_no_gaps
-#
