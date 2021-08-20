@@ -1,2 +1,5 @@
-remove mod4 = Super_L
-add mod3 = Super_L
+remove lock = Caps_Lock
+
+keycode 66 = Control_L
+
+add control = Control_L

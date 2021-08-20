@@ -4,7 +4,7 @@
 find . -name ".DS_Store" | xargs rm -rf
 
 # Default
-BACKUPS=(.config .bashrc .bash_logout .zshrc .vimrc .bash_profile .zprofile .profile .xprofile .xinitrc .tmux.conf)
+BACKUPS=(.config .bashrc .bash_logout .zshrc .vimrc .bash_profile .zprofile .profile .xprofile .Xresources .xinitrc .tmux.conf i3)
 
 # helper function
 function backup_if_exists() {

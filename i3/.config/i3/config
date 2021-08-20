@@ -3,9 +3,7 @@
 # ==================================== #
 
 # set modifier
-set $superL Mod3
-set $superR Mod4
-set $alt Mod1
+set $superL Mod4
 
 set $ws1 "1: Home"
 set $ws2 "2: Dev"
@@ -30,7 +28,7 @@ bindsym $superL+space floating toggle
 # change focus between tiling / floating windows
 bindsym $superL+Shift+space focus mode_toggle
 
-# Use Mouse+$superR to drag floating windows to their wanted position
+# Use Mouse+$superL to drag floating windows to their wanted position
 floating_modifier $superL
 
 # ==================================== #
@@ -38,25 +36,25 @@ floating_modifier $superL
 # ==================================== #
 
 # kill focused window
-bindsym $superR+d kill
+bindsym $superL+d kill
 
 # shutdown menu in rofi
-bindsym $superR+q exec bash $HOME/bin/power.sh
+bindsym $superL+shift+q exec bash $HOME/bin/power.sh
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $superR+Shift+r restart
+bindsym $superL+Shift+r restart
 
 # start a terminal
 bindsym $superL+Return exec i3-sensible-terminal
 
 # start dmenu & rofi (a program launcher)
-bindsym $superR+Shift+f exec rofi -lines 12 -padding 18 -width 60 -location 0 -show window -sidebar-mode -columns 3 -font 'Noto Sans 18'
-bindsym $superR+f exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Noto Sans 18'
+bindsym $superL+Shift+f exec rofi -lines 12 -padding 18 -width 60 -location 0 -show window -sidebar-mode -columns 3 -font 'Noto Sans 18'
+bindsym $superL+f exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Noto Sans 18'
 
 #bindsym $mod+d exec "dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'monospace-10' -p 'dmenu%'"
 
 # common apps keybinds
-bindsym $superR+w exec firefox
+bindsym $superL+w exec firefox
 
 # change focus like vim
 bindsym $superL+h focus left
@@ -71,10 +69,10 @@ bindsym $superL+Shift+k move up
 bindsym $superL+Shift+l move right
 
 # enter fullscreen mode for the focused container
-bindsym $superR+Escape fullscreen toggle
+bindsym $superL+Escape fullscreen toggle
 
 # change container layout split
-bindsym $superR+s layout toggle
+bindsym $superL+s layout toggle
 
 # change split orientation
 bindsym $superL+o split toggle
@@ -82,22 +80,22 @@ bindsym $superL+o split toggle
 # bindsym $superL+v split v
 
 # switch to workspace
-bindsym $superR+1 workspace $ws1
-bindsym $superR+2 workspace $ws2
-bindsym $superR+3 workspace $ws3
-bindsym $superR+4 workspace $ws4
-bindsym $superR+5 workspace $ws5
-bindsym $superR+6 workspace $ws6
-bindsym $superR+7 workspace $ws7
+bindsym $superL+1 workspace $ws1
+bindsym $superL+2 workspace $ws2
+bindsym $superL+3 workspace $ws3
+bindsym $superL+4 workspace $ws4
+bindsym $superL+5 workspace $ws5
+bindsym $superL+6 workspace $ws6
+bindsym $superL+7 workspace $ws7
 
 # move focused container to workspace
-bindsym $superR+Shift+1 move container to workspace $ws1
-bindsym $superR+Shift+2 move container to workspace $ws2
-bindsym $superR+Shift+3 move container to workspace $ws3
-bindsym $superR+Shift+4 move container to workspace $ws4
-bindsym $superR+Shift+5 move container to workspace $ws5
-bindsym $superR+Shift+6 move container to workspace $ws6
-bindsym $superR+Shift+7 move container to workspace $ws7
+bindsym $superL+Shift+1 move container to workspace $ws1
+bindsym $superL+Shift+2 move container to workspace $ws2
+bindsym $superL+Shift+3 move container to workspace $ws3
+bindsym $superL+Shift+4 move container to workspace $ws4
+bindsym $superL+Shift+5 move container to workspace $ws5
+bindsym $superL+Shift+6 move container to workspace $ws6
+bindsym $superL+Shift+7 move container to workspace $ws7
 
 # Screenshot
 bindsym $superL+y           exec --no-startup-id flameshot gui -p ~/Pictures/screenshots
@@ -108,7 +106,7 @@ bindsym $superL+Shift+y     exec --no-startup-id flameshot full -p ~/Pictures/sc
 # ==================================== #
 # => Resize mode settings
 # ==================================== #
-bindsym $superR+r mode "resize"
+bindsym $superL+r mode "resize"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
