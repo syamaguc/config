@@ -11,6 +11,7 @@ font:
   bold_italic:
     family: Ricty diminished
     style: Bold Italic
+  size: 14
 
 
 # Colors (Dracula)
