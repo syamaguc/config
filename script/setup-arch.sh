@@ -25,6 +25,7 @@ BASE=(\
 
 AUR=(\
       google-chrome \
+      ttf-ricity-diminished \
       autotiling \
       lightdm-webkit2-theme-glorious \
       )
