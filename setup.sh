@@ -60,7 +60,7 @@ case ${info[0]} in
             if [[ ${info[2]} == "arch" ]]; then
                 echo "start ${info[0]} ${info[1]} ${info[2]} setting..."
                 bash script/setup-arch.sh
-                bash symlink.sh git zsh x i3 i3status alacritty rofi vim
+                bash symlink.sh git zsh vim tmux alacritty bin x i3 i3status rofi conky
             elif [[ ${info[1]} == "" ]]; then
                 echo ""
             else

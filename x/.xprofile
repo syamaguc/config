@@ -1,12 +1,3 @@
-# Random Photo Every Login
-feh --bg-fill --randomize ~/Pictures/Wallpaper/* &
-
-# Monitor Config
-# xrandr --auto --output DVI-D-0 --mode 2560x1440 --left-of HDMI-0
-
-# Network Manager Applet
-nm-applet --indicator &
-
 # Don't Randomly Turn off
 xset s off
 xset -dpms
@@ -18,24 +9,12 @@ xset r rate 210 40
 # Environment variables set everywhere
 export EDITOR="vim"
 export TERMINAL="alacritty"
-export BROWSER="firefox"
-
-# For QT Themes
-export QT_QPA_PLATFORMTHEME=qt5ct
+export BROWSER="google-chrome-stable"
 
 # XDG Paths
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
-
-# Compositor
-picom -b
-
-# Hide mouse when typing
-# xbanish &
-
-# Screenshots
-flameshot &
 
 # load Xresources
 xrdb ~/.Xresources
@@ -47,5 +26,3 @@ export ZDOTDIR=$HOME/.config/zsh
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
-
-fcitx-autostart &
