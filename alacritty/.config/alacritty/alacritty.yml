@@ -1,3 +1,18 @@
+font:
+  normal:
+    family: Ricty diminished
+    style: Regular
+  bold:
+    family: Ricty diminished
+    style: Bold
+  italic:
+    family: Ricty diminished
+    style: Italic
+  bold_italic:
+    family: Ricty diminished
+    style: Bold Italic
+
+
 # Colors (Dracula)
 colors:
   # Default colors
