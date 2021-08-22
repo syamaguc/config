@@ -16,7 +16,7 @@ set $ws8 "8"
 set $ws9 "9"
 
 # set font
-font pango: Noto Sans 10
+font pango:Ricty Diminished 11
 
 # ==================================== #
 # => Startup Applications
@@ -24,6 +24,7 @@ font pango: Noto Sans 10
 
 exec_always --no-startup-id conky -d -c $HOME/.config/conky/conky.conf
 exec_always --no-startup-id picom -b
+exec_always --no-startup-id dropbox
 exec_always --no-startup-id fcitx-autostart
 exec_always --no-startup-id autotiling -w 1 3 5
 exec_always --no-startup-id nm-applet --indicator
@@ -101,8 +102,8 @@ bindsym $superL+Shift+r reload;restart
 bindsym $superL+Return exec i3-sensible-terminal
 
 # start dmenu & rofi (a program launcher)
-bindsym $superL+Shift+f exec rofi -lines 12 -padding 18 -width 60 -location 0 -show window -sidebar-mode -columns 3 -font 'Noto Sans 18'
-bindsym $superL+f exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Noto Sans 18'
+bindsym $superL+Shift+f exec rofi -lines 12 -padding 18 -width 60 -location 0 -show window -sidebar-mode -columns 3 -font 'Ricty Diminished 18'
+bindsym $superL+f exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Ricty Diminished 18'
 
 # common apps keybinds
 bindsym $superL+w exec google-chrome-stable
@@ -137,7 +138,7 @@ bar {
   		  urgent_workspace   #FF5555 #FF5555 #F8F8F2
   		  binding_mode       #FF5555 #FF5555 #F8F8F2
   		}
-        font pango: Noto Sans 13
+        font pango:Ricty Diminished 14
         #status_command i3status
 }
 
