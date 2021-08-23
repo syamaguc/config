@@ -8,7 +8,7 @@ BASE=(\
       # for japanese
       fcitx fcitx-mozc fcitx-configtool \
       # i3 & important apps
-      i3 feh rofi fzf ranger conky picom \
+      i3 feh rofi ranger conky picom \
       # lightdm
       lightdm lightdm-webkit2-greeter lightdm-gtk-greeter \
       # network
@@ -17,6 +17,8 @@ BASE=(\
       unzip wget nautilus xorg xsel jq alsa-utils neofetch xdg-user-dirs \
       # for language
       npm rust go \
+      # for vim
+      ripgrep fzf \
       # fonts
       otf-ipafont noto-fonts noto-fonts-emoji \
       # sound
@@ -41,7 +43,11 @@ function lightdm-setting () {
 }
 
 function tmux-setting () {
-     git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+      if [ -f $HOME/.tmux/plugins/tpm ]; then
+            ;
+      else
+            git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+      fi
 }
 
 echo "Install basics ...\n"

@@ -162,3 +162,8 @@ alias archlinx-fix-keys="sudo pacman-key --init && sudo pacman-key --populate ar
 # systemd
 alias mach_list_systemctl="systemctl list-unit-files --state=enabled"
 
+# output pacman packages
+alias pacman-list="pacman -Qqen"
+
+# output yay packages
+alias yay-list="pacman -Qqem"
