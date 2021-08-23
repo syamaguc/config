@@ -1,24 +1,23 @@
 
 # ==================== Emojis ====================
-# ➕  Add：新規（ファイル）機能追加
-# 🔧  Implement: 実装
-# 🐛  Fix: バグ修正（Bagfix）
-# 🚑  Hotfix：クリティカルなバグ修正
-# ⚡  Update：機能修正（バグではない）
-# 💥  Change：破壊的仕様変更
-# ✨  New_feature: 新機能（New Feature）
-# 🔖  Tag: バージョンタグ（Version Tag）
-# ♻️   Refactor: リファクタリング(Refactoring)
-# 🔥  Remove：削除（ファイル）
-# 🎉  Initial: 初めてのコミット（Initial Commit）
-# ⬆️   Upgrade：バージョンアップ
-# ⬇️   Downgrade：バージョンダウン
-# ⏪  Revert：変更取り消し
-# ✅  Check : テストを追加
-# 📚  Docs: ドキュメントを追加（Documentation）
-# 🎨  UI/UX: デザインUI/UX(Accessibility)
-# 🚀  Performance : パフォーマンス（Performance）
-# 💩  hankey: Unko
-# 🚧  WIP: Work In Progress
-# 🐳  CI: Docker etc
-# 🐧  Linux: Linux
+# ➕  Add
+# 🔧  Implement
+# 🐛  Fix
+# 🚑  Hotfix
+# ⚡  Update
+# 💥  Change
+# ✨  New_feature
+# 🔖  Tag
+# ♻️   Refactor
+# 🔥  Remove
+# 🎉  Initial commit
+# 👆  Upgrade
+# 👎  Downgrade
+# ⏪  Revert
+# ✅  Test
+# 📚  Docs
+# 🎨  UI/UX
+# 🚀  Performance
+# 💩  
+# 🚧  WIP
+# 🐳  CI

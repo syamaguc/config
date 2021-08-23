@@ -3,13 +3,13 @@
 	email = programmer2844@gmail.com
 
 [push]
-    	default = current
+    default = current
 
 [pull]
 	rebase = false
 
 [commit]
-    	template = ~/.commit_template
+    template = ~/.commit_template
 
 [core]
 	excludesfile = ~/.gitignore_global
@@ -35,7 +35,7 @@
 [color "status"]
 	added = green bold
 	changed = yellow bold
-    	untracked = red bold
+    untracked = red bold
 
 [filter "lfs"]
 	required = true
@@ -44,4 +44,4 @@
 	process = git-lfs filter-process
 
 [alias]
-    	tree=log --graph --pretty=format:'%x09%C(auto) %h %Cgreen %ar %Creset%x09by"%C(cyan ul)%an%Creset" %x09%C(auto)%s %d'
+    tree=log --graph --pretty=format:'%x09%C(auto) %h %Cgreen %ar %Creset%x09by"%C(cyan ul)%an%Creset" %x09%C(auto)%s %d'
