@@ -91,7 +91,7 @@ dstop() { docker stop $(docker ps -a -q); }
 drm() { docker rm -f $(docker ps -aq); }
 drmi() { docker rmi -f $(docker images -aq); }
 dup() { docker-compose up -d;  }
-dupr() { docker-compose up -d --build; }
+dupr() { docker-compose restart; }
 ddown() { docker-compose down; }
 alias dl="docker ps -l -q"
 
