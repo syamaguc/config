@@ -12,7 +12,7 @@ BASE=(\
       # lightdm
       lightdm lightdm-webkit2-greeter lightdm-gtk-greeter \
       # network
-      networkmanager network-manager-applet \
+      net-tools networkmanager network-manager-applet \
       # Misc
       unzip wget nautilus xorg xsel jq alsa-utils neofetch xdg-user-dirs \
       # for language
