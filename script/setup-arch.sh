@@ -17,8 +17,10 @@ BASE=(\
       unzip wget nautilus xorg xsel jq alsa-utils neofetch xdg-user-dirs \
       # for language
       npm rust go \
+      # for python
+      python-pip \
       # for vim
-      ripgrep fzf \
+      ripgrep fzf task \
       # fonts
       otf-ipafont noto-fonts noto-fonts-emoji \
       # sound
