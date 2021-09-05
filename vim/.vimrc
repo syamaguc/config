@@ -1,5 +1,6 @@
 set runtimepath+=~/.vimruntime
 
+source ~/.vimruntime/vimrcs/filetype.vim
 source ~/.vimruntime/vimrcs/basic.vim
 source ~/.vimruntime/vimrcs/utils.vim
 source ~/.vimruntime/vimrcs/keybind.vim
