@@ -4,6 +4,7 @@
 
 # set modifier
 set $superL Mod4
+set $altL Mod1
 
 set $ws1 "1"
 set $ws2 "2"
@@ -106,8 +107,8 @@ bindsym $superL+Shift+r reload;restart
 bindsym $superL+Return exec i3-sensible-terminal
 
 # start dmenu & rofi (a program launcher)
-bindsym $superL+Shift+f exec rofi -lines 12 -padding 18 -width 60 -location 0 -show window -sidebar-mode -columns 3 -font 'Ricty Diminished 18'
-bindsym $superL+f exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Ricty Diminished 18'
+bindsym $altL+space exec rofi -lines 12 -padding 18 -width 60 -location 0 -show window -sidebar-mode -columns 3 -font 'Ricty Diminished 18'
+bindsym $altL+Shift+space exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Ricty Diminished 18'
 
 # common apps keybinds
 bindsym $superL+w exec google-chrome-stable
