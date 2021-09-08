@@ -3,6 +3,7 @@ export HISTFILE=$XDG_DATA_HOME/zsh/history
 export HISTSIZE=1000000
 export SAVEHIST=1000000
 export PATH="$HOME/.local/bin":$PATH
+export PATH="$HOME/bin":$PATH
 
 # fzf default command
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
