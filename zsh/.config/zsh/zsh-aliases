@@ -36,6 +36,11 @@ case "$(uname -s)" in
 esac
 
 # --------------------------
+# Screenshot
+# --------------------------
+alias scrot='scrot -s ~/Pictures/Screenshot/%b%d-%H%M%S.png'
+
+# --------------------------
 # tmux
 # --------------------------
 alias tls='tmux ls'
