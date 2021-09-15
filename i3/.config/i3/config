@@ -110,7 +110,8 @@ bindsym $altL+space exec rofi -lines 12 -padding 18 -width 60 -location 0 -show 
 bindsym $altL+Shift+space exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Ricty Diminished 18'
 
 # common apps keybinds
-bindsym $superL+w exec google-chrome-stable
+bindsym $superL+w exec vivaldi-snapshot
+bindsym $superL+Shift+w exec vivaldi-snapshot --incognito
 
 # ==================================== #
 # => Resize mode settings

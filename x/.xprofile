@@ -9,7 +9,8 @@ xset r rate 210 40
 # Environment variables set everywhere
 export EDITOR="vim"
 export TERMINAL="alacritty"
-export BROWSER="google-chrome-stable"
+export BROWSER="vivaldi-snapshot"
+#export BROWSER="google-chrome-stable"
 
 # XDG Paths
 export XDG_CONFIG_HOME=$HOME/.config
