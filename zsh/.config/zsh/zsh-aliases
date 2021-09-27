@@ -104,9 +104,9 @@ alias dl="docker ps -l -q"
 # --------------------------
 # 42
 # --------------------------
-function norminette() {
-    docker run --rm -v $PWD:/code tkomatsu/norminette /code/$1
-}
+# function norminette() {
+#     docker run --rm -v $PWD:/code tkomatsu/norminette /code/$1
+# }
 
 
 # --------------------------
