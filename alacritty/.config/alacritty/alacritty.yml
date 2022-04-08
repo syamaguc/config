@@ -43,7 +43,7 @@ bright:
   cyan:    '0x9aedfe'
   white:   '0xe6e6e6'
 
-background_opacity: 0.9
+window.opacity: 0.9
 
 key_bindings:
   - { key: V,        mods: Control|Shift, action: Paste                        }

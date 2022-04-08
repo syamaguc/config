@@ -113,7 +113,7 @@ alias dl="docker ps -l -q"
 # C/C++
 # --------------------------
 
-alias gccw='gcc -Wall -Werror -Wextra'
+# alias gccw='gcc -Wall -Werror -Wextra'
 alias cl='clang++ -Wall -Werror -Wextra'
 alias leaks='valgrind --leak-check=full'
 

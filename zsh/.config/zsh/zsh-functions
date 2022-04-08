@@ -29,3 +29,19 @@ function zsh_add_completion() {
 	completion_file="$(basename "${completion_file_path}")"
 	if [ "$2" = true ] && compinit "${completion_file:1}"
 }
+
+# Auto venv for python
+
+AUTOSWITCH_ACTIVATE="venv/bin/activate"
+
+function cd() {
+  if [[ -d ./venv ]] ; then
+    deactivate
+  fi
+
+  builtin cd $1
+
+  if [[ -d ./venv ]] ; then
+	source ./venv/bin/activate
+  fi
+}
