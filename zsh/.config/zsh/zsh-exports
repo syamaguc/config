@@ -4,6 +4,7 @@ export HISTSIZE=1000000
 export SAVEHIST=1000000
 export PATH="$HOME/.local/bin":$PATH
 export PATH="$HOME/bin":$PATH
+export PATH=~/.npm-global/bin:$PATH
 # Android
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 export PATH="$ANDROID_HOME/platform-tools":$PATH
