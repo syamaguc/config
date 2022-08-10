@@ -67,8 +67,10 @@ alias back='cd $(git rev-parse --show-toplevel)'
 # --------------------------
 # vim
 # --------------------------
-alias vimrc='vim ~/.vimruntime/vimrcs'
-alias vi='vim -u ~/.vimruntime/vimrcs/minimal.vim'
+# alias vimrc='vim ~/.vimruntime/vimrcs'
+# alias vi='vim -u ~/.vimruntime/vimrcs/minimal.vim'
+alias vi='vim'
+alias vim='nvim'
 
 # --------------------------
 # git

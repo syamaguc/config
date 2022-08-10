@@ -20,7 +20,7 @@ BASE=(\
       # for python
       python-pip \
       # for vim
-      ripgrep fzf task \
+      ripgrep fzf \
       # fonts
       otf-ipafont noto-fonts noto-fonts-emoji \
       # sound
