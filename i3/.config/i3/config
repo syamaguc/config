@@ -92,6 +92,7 @@ bindsym $superL+Shift+z exec bash $HOME/bin/i3-lock.sh
 
 # Screenshot
 bindsym --release $superL+p exec scrot -s ~/Pictures/Screenshot/%b%d-%H%M%S.png
+bindsym --release $superL+Shift+p exec gyazo
 
 # kill focused window
 bindsym $superL+Shift+d kill
