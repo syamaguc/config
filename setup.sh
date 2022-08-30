@@ -62,9 +62,7 @@ case ${info[0]} in
                 bash script/setup-arch.sh
                 bash symlink.sh git zsh nvim vim tmux alacritty bin x i3 i3blocks rofi conky
             elif [[ ${info[1]} == "" ]]; then
-                echo ""
-            else
-                    echo ""
+                echo "Unknown OS"
             fi
         fi
             ;;
@@ -72,7 +70,7 @@ case ${info[0]} in
         if [[ ${info[1]} == "Mac" ]]; then
             echo "start ${info[0]} ${info[1]} ${info[2]} setting..."
             bash script/setup-mac-arm64.sh
-            bash symlink.sh git zsh vim tmux alacritty bin
+            bash symlink.sh git zsh nvim vim tmux alacritty bin
         elif [[ ${info[1]} == "" ]]; then
             echo ""
         else

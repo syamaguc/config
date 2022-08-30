@@ -12,7 +12,8 @@
     drac-red: #ff5555;
     drac-yel: #f1fa8c;
 
-    font: "Jetbrains Mono 12";
+    /*font: "Jetbrains Mono 12";*/
+    font: "Hack 12";
 
     foreground: @drac-fgd;
     background: @drac-bgd;

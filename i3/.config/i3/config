@@ -26,7 +26,7 @@ font pango:Ricty Diminished 11
 exec_always --no-startup-id conky -d -c $HOME/.config/conky/conky.conf
 exec_always --no-startup-id picom -b
 exec_always --no-startup-id dropbox autostart
-exec_always --no-startup-id fcitx-autostart
+exec_always --no-startup-id fcitx5 -r
 exec_always --no-startup-id autotiling -w 1 3 5
 exec_always --no-startup-id nm-applet --indicator
 exec_always --no-startup-id feh --bg-fill --randomize $HOME/Dropbox/Wallpaper/*
@@ -173,3 +173,9 @@ assign [class="Fcitx-config-gtk3"] $ws6
 
 # floating
 for_window [class="Fcitx-config-gtk3"] floating enable
+
+# i3-gaps
+smart_gaps on
+smart_borders on
+gaps inner 10
+gaps outer 5

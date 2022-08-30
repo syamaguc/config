@@ -6,9 +6,9 @@ BASE=(\
       # terminal
       alacritty \
       # for japanese
-      fcitx fcitx-mozc fcitx-configtool \
+      fcitx5 fcitx5-mozc fcitx5-configtool fcitx5-qt fcitx5-gtk fcitx5-nord \
       # i3 & important apps
-      i3 feh rofi ranger conky picom \
+      i3 i3blocks feh rofi ranger conky picom \
       # lightdm
       lightdm lightdm-webkit2-greeter lightdm-gtk-greeter \
       # network
@@ -16,24 +16,29 @@ BASE=(\
       # Misc
       unzip wget nautilus xorg xsel jq alsa-utils neofetch xdg-user-dirs \
       # for language
-      npm rust go \
+      npm yarn rust go \
       # for python
       python-pip \
       # for vim
-      ripgrep fzf \
+      neovim ripgrep fzf \
       # fonts
       otf-ipafont noto-fonts noto-fonts-emoji \
       # sound
       pulseaudio pulseaudio-alsa pavucontrol \
+      # apps
+      discord \
       )
 
 AUR=(\
       google-chrome \
-      ttf-ricity-diminished \
+      dropbox \
+      ttf-ricty-diminished \
       autotiling \
       lightdm-webkit2-theme-glorious \
+      slack-desktop \
       )
 
+# TODO:
 function lightdm-setting () {
       # Set default lightdm greeter to lightdm-webkit2-greeter
       sudo sed -i 's/^\(#?greeter\)-session\s*=\s*\(.*\)/greeter-session = lightdm-webkit2-greeter #\1/ #\2g' /etc/lightdm/lightdm.conf
@@ -46,7 +51,7 @@ function lightdm-setting () {
 
 function tmux-setting () {
       if [ -f $HOME/.tmux/plugins/tpm ]; then
-            ;
+            echo "plugin already exist";
       else
             git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
       fi
@@ -81,5 +86,6 @@ done
 
 lightdm-setting
 tmux-setting
+chsh -s /bin/zsh
 
 echo "Finish, all done.\n"
