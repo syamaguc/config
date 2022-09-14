@@ -36,6 +36,7 @@ AUR=(\
       autotiling \
       lightdm-webkit2-theme-glorious \
       slack-desktop \
+      snapd \
       )
 
 # TODO:
