@@ -10,7 +10,7 @@ BASE=(\
       # i3 & important apps
       i3 i3blocks feh rofi ranger conky picom \
       # lightdm
-      lightdm lightdm-webkit2-greeter lightdm-gtk-greeter \
+      lightdm lightdm-gtk-greeter \
       # network
       net-tools networkmanager network-manager-applet \
       # Misc
@@ -20,7 +20,7 @@ BASE=(\
       # for python
       python-pip \
       # for vim
-      neovim ripgrep fzf \
+      neovim ripgrep fzf shellcheck \
       # fonts
       otf-ipafont noto-fonts noto-fonts-emoji \
       # sound
@@ -34,20 +34,16 @@ AUR=(\
       dropbox \
       ttf-ricty-diminished \
       autotiling \
-      lightdm-webkit2-theme-glorious \
       slack-desktop \
       snapd \
       )
 
 # TODO:
 function lightdm-setting () {
-      # Set default lightdm greeter to lightdm-webkit2-greeter
-      sudo sed -i 's/^\(#?greeter\)-session\s*=\s*\(.*\)/greeter-session = lightdm-webkit2-greeter #\1/ #\2g' /etc/lightdm/lightdm.conf
-      # Set default lightdm-webkit2-greeter theme to Glorious
-      sudo sed -i 's/^webkit_theme\s*=\s*\(.*\)/webkit_theme = glorious #\1/g' /etc/lightdm/lightdm-webkit2-greeter.conf
-      sudo sed -i 's/^debug_mode\s*=\s*\(.*\)/debug_mode = true #\1/g' /etc/lightdm/lightdm-webkit2-greeter.conf
       # Fix failed to start lightdm @AMD processor
       sudo sed -i 's/^\(#?logind\)-check-graphical\s*=\s*\(.*\)/logind-check-graphical = true #\1/g' /etc/lightdm/lightdm.conf
+      systemctl enable lightdm
+      systemctl start lightdm
 }
 
 function tmux-setting () {
@@ -88,5 +84,6 @@ done
 lightdm-setting
 tmux-setting
 chsh -s /bin/zsh
+systemctl start NetworkManager
 
 echo "Finish, all done.\n"
