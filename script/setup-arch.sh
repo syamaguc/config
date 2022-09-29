@@ -41,10 +41,10 @@ AUR=(
 )
 
 function pacman-install() {
-	echo "Install basics ...\n"
+	printf "Install basics ...\n"
 
-	for app in ${BASE[@]}; do
-		sudo pacman -Sy --noconfirm --needed $app
+	for app in "${BASE[@]}"; do
+		sudo pacman -Sy --noconfirm --needed "$app"
 	done
 
 	which yay >/dev/null 2>&1
@@ -52,23 +52,23 @@ function pacman-install() {
 	0) ;;
 
 	1)
-		echo "Install yay ...\n"
-		mkdir -p $HOME/tmp
-		cd $HOME/tmp
+		printf "Install yay ...\n"
+		mkdir -p "$HOME/tmp"
+		cd "$HOME/tmp" || exit
 		git clone https://aur.archlinux.org/yay-bin.git
-		cd yay-bin
+		cd yay-bin || exit
 		makepkg --noconfirm -si
-		cd -
-		sudo rm -rf $HOME/tmp/yay-bin
+		cd - || exit
+		sudo rm -rf "$HOME/tmp/yay-bin"
 		;;
 	esac
 
 }
 
 function yay-install() {
-	echo "Install AUR packages ...\n"
-	for app in ${AUR[@]}; do
-		yay -Sy --noconfirm --needed $app
+	printf "Install AUR packages ...\n"
+	for app in "${AUR[@]}"; do
+		yay -Sy --noconfirm --needed "$app"
 	done
 
 }
@@ -89,10 +89,10 @@ function docker-setting() {
 }
 
 function tmux-setting() {
-	if [ -f $HOME/.tmux/plugins/tpm ]; then
+	if [ -f "$HOME/.tmux/plugins/tpm" ]; then
 		echo "plugin already exist"
 	else
-		git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+		git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
 	fi
 }
 
