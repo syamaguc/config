@@ -29,6 +29,8 @@ BASE=(
 	discord
 	# dev
 	docker docker-compose
+  # GPU
+  nvidia
 )
 
 AUR=(
