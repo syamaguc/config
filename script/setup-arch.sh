@@ -2,7 +2,7 @@
 
 BASE=(
 	# basic item
-	stow tmux git man htop zsh
+	stow tmux git man htop zsh xclip
 	# terminal
 	alacritty
 	# for japanese
