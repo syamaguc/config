@@ -122,6 +122,10 @@ function other-setting() {
 	sudo chsh -s /bin/zsh
 	sudo systemctl enable NetworkManager
 	sudo systemctl start NetworkManager
+	sudo systemctl enable snapd
+	sudo systemctl enable --now snapd.apparmor
+	sudo systemctl restart snapd
+  sudo snap install tradingview
 }
 
 pacman-install
