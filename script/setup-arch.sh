@@ -2,7 +2,7 @@
 
 BASE=(
 	# basic item
-	stow tmux git man htop zsh xclip
+	stow tmux git man htop zsh xclip reflector
 	# terminal
 	alacritty
 	# for japanese
@@ -40,6 +40,7 @@ AUR=(
 	autotiling
 	slack-desktop
 	snapd
+  clang-format-all-git
 )
 
 function pacman-install() {
