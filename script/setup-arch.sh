@@ -20,7 +20,7 @@ BASE=(
 	# for python
 	python-pip
 	# for vim
-	neovim ripgrep fzf shellcheck shfmt stylua fd
+	neovim ripgrep fzf shellcheck shfmt stylua fd deno
 	# fonts
 	otf-ipafont noto-fonts noto-fonts-emoji
 	# sound
