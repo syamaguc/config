@@ -1,5 +1,7 @@
 # enable Homebrew
-eval "$(/opt/homebrew/bin/brew shellenv)"
+if [ "$(uname)" == 'Darwin' ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 
 # Use my custom zsh file
 # if you want to use ohmyzsh, comment out and
@@ -28,3 +30,6 @@ if [ $? = 0 ]; then
             ;;
     esac
 fi
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

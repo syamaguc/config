@@ -29,8 +29,8 @@ BASE=(
 	discord
 	# dev
 	docker docker-compose
-  # GPU
-  nvidia
+	# GPU
+	nvidia
 )
 
 AUR=(
@@ -40,7 +40,7 @@ AUR=(
 	autotiling
 	slack-desktop
 	snapd
-  clang-format-all-git
+	clang-format-all-git
 )
 
 function pacman-install() {
@@ -104,6 +104,8 @@ function node-setting() {
 	npm config set prefix "$HOME/.npm-global"
 	zsh
 	npm install -g neovim prettier serverless
+	# install nvm
+	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 }
 
 function python-setting() {
@@ -126,12 +128,11 @@ function other-setting() {
 	sudo systemctl enable snapd
 	sudo systemctl enable --now snapd.apparmor
 	sudo systemctl restart snapd
-  sudo snap install tradingview
+	sudo snap install tradingview
 }
 
 pacman-install
 yay-install
-
 lightdm-setting
 tmux-setting
 docker-setting
