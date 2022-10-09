@@ -41,6 +41,7 @@ AUR=(
 	slack-desktop
 	snapd
 	clang-format-all-git
+  nodejs-markdownlint-cli
 )
 
 function pacman-install() {
