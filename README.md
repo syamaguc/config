@@ -11,5 +11,3 @@ clean up symlinks
 ```
 ./symlink.sh clean
 ```
-
-

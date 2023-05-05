@@ -23,6 +23,7 @@ font pango:Ricty Diminished 11
 # => Startup Applications
 # ==================================== #
 
+exec_always --no-startup-id xmodmap ~/.Xmodmap
 exec_always --no-startup-id conky -d -c $HOME/.config/conky/conky.conf
 exec_always --no-startup-id picom -b
 exec_always --no-startup-id dropbox autostart
