@@ -22,6 +22,12 @@ autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 autoload history-search-end
 
+
+# History
+export HISTFILE=${HOME}/.zsh_history
+export SAVEHIST=100000
+
+
 # History options
 setopt hist_ignore_all_dups
 setopt hist_verify
