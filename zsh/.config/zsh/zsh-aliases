@@ -121,6 +121,7 @@ Darwin)
 	alias copy='pbcopy'
 	alias paste='pbpaste'
 	alias ls='ls -G'
+	alias vim='/opt/homebrew/bin/nvim'
 	;;
 
 Linux)
