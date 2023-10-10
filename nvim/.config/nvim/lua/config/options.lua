@@ -39,7 +39,7 @@ local options = {
   signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
   wrap = false, -- display lines as one long line
   sidescrolloff = 8,
-  guifont = "monospace:h17", -- the font used in graphical neovim applications
+  guifont = "Hack Nerd font", -- the font used in graphical neovim applications
   title = true,
   inccommand = "split", -- for quickfix
 
