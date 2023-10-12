@@ -13,7 +13,7 @@ cmd - n: yabai -m window --focus next || yabai -m display --focus next
 cmd - p: yabai -m window --focus prev || yabai -m display --focus prev
 
 # toggle fullscreen
-cmd - z: yabai -m window --toggle zoom-fullscreen
+alt - escape: yabai -m window --toggle zoom-fullscreen
 
 # create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
 shift + cmd - n : yabai -m space --create && \
@@ -39,6 +39,17 @@ shift + cmd - h : yabai -m window --swap west
 shift + cmd - l : yabai -m window --swap east
 shift + cmd - j : yabai -m window --swap south
 shift + cmd - k : yabai -m window --swap north
+
+
+
+# rotate tree
+alt - r : yabai -m space --rotate 90
+
+# mirror tree y-axis
+alt - y : yabai -m space --mirror y-axis
+
+# mirror tree x-axis
+alt - x : yabai -m space --mirror x-axis
 
 # Balance
 alt - 0 : yabai -m space --balance
