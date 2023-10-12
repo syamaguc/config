@@ -19,10 +19,6 @@ alias mkdir='mkdir -p'
 alias df='df -h'
 alias less='less -NM'
 
-# --------------------------
-# Screenshot
-# --------------------------
-alias scrot='scrot -s ~/Pictures/Screenshot/%b%d-%H%M%S.png'
 
 # --------------------------
 # tmux
@@ -80,12 +76,6 @@ dupr() { docker-compose restart; }
 ddown() { docker-compose down; }
 alias dl="docker ps -l -q"
 
-# --------------------------
-# 42
-# --------------------------
-# function norminette() {
-#     docker run --rm -v $PWD:/code tkomatsu/norminette /code/$1
-# }
 
 # --------------------------
 # C/C++
@@ -94,10 +84,6 @@ alias dl="docker ps -l -q"
 # alias gccw='gcc -Wall -Werror -Wextra'
 alias cl='clang++ -Wall -Werror -Wextra'
 alias leaks='valgrind --leak-check=full'
-
-# --------------------------
-# disk
-# --------------------------
 
 # easier to read disk
 alias df='df -h'     # human-readable sizes
@@ -149,6 +135,9 @@ Linux)
 	# cliip board
 	alias copy='xclip -selection clipboard'
 	alias paste='xclip -selection clipboard -o'
+
+  # screenshot
+  alias scrot='scrot -s ~/Pictures/Screenshot/%b%d-%H%M%S.png'
 	;;
 
 CYGWIN* | MINGW32* | MSYS* | MINGW*) ;;

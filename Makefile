@@ -1,6 +1,3 @@
-install:
-	bash script/install.sh
-
 setup:
 	bash setup.sh
 
