@@ -97,6 +97,18 @@ alias psmem='ps auxf | sort -nr -k 4 | head -5'
 # get top process eating cpu ##
 alias pscpu='ps auxf | sort -nr -k 3 | head -5'
 
+
+
+function editor() {
+    if command -v nvim > /dev/null; then
+        nvim "$@"
+    else
+        vim "$@"
+    fi
+}
+
+
+
 # --------------------------
 # Architecture specific
 # --------------------------
@@ -107,13 +119,13 @@ Darwin)
 	alias copy='pbcopy'
 	alias paste='pbpaste'
 	alias ls='ls -G'
-	alias vim='/opt/homebrew/bin/nvim'
+	alias vim='editor'
 	;;
 
 Linux)
 	alias ls='ls --color=auto'
 	alias vi='/usr/bin/vim'
-	alias vim='/usr/bin/nvim'
+	alias vim='editor'
 	# get fastest mirrors
 
 	alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
