@@ -98,9 +98,6 @@ bindsym --release $superL+Shift+p exec gyazo
 # kill focused window
 bindsym $superL+Shift+d kill
 
-# shutdown menu in rofi
-bindsym $superL+Shift+q exec bash $HOME/bin/power.sh
-
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $superL+Shift+r reload;restart
 
@@ -110,6 +107,9 @@ bindsym $superL+Return exec i3-sensible-terminal
 # start dmenu & rofi (a program launcher)
 bindsym $altL+Shift+space exec rofi -lines 12 -padding 18 -width 60 -location 0 -show window -sidebar-mode -columns 3 -font 'Ricty Diminished 18'
 bindsym $altL+space exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Ricty Diminished 18'
+
+# shutdown menu in rofi
+bindsym $altL+Shift+q exec bash $HOME/bin/power.sh
 
 # common apps keybinds
 bindsym $superL+w exec google-chrome-stable
