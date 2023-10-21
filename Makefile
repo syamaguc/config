@@ -1,6 +1,6 @@
 COMMON = git zsh vim
-LOCAL_COMMON = nvim tmux alacritty bin
-LINUX = x i3 i3blocks picom rofi conky libskk
+LOCAL_COMMON = lazygit nvim tmux alacritty bin 
+LINUX = x i3 i3blocks picom rofi conky libskk ranger dunst
 MAC_OS = yabai skhd
 
 archlinux: local
