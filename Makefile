@@ -6,11 +6,16 @@ MAC_OS = yabai skhd
 archlinux: local
 	@stow -v $(LINUX)
 
-mac: local
+mac: local aquaskk
 	@stow -v $(MAC_OS)
 
 local: server
 	@stow -v $(LOCAL_COMMON)
+
+aquaskk:
+	@rm -rf ~/Library/Application\ Support/AquaSKK/keymap.conf
+	@cp /Library/Input\ Methods/AquaSKK.app/Contents/Resources/keymap.conf ~/Library/Application\ Support/AquaSKK/keymap.conf
+	@echo "StickyKey  ;" >> ~/Library/Application\ Support/AquaSKK/keymap.conf
 
 server:
 	@stow -v $(COMMON)
