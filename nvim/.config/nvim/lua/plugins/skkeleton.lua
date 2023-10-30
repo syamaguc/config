@@ -11,7 +11,7 @@ return {
                 call skkeleton#config({ 
                     \  'globalJisyo': expand('~/.config/nvim/skk/SKK-JISYO.L'),
                     \  'eggLikeNewline': v:true,
-                    \  'userJisyo': expand('~/.config/nvim/skk/.skkeleton')
+                    \  'userJisyo': expand('~/.config/nvim/skk/skkeleton')
                     \ })
             ]],
         false
