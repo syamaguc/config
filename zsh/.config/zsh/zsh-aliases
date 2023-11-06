@@ -75,7 +75,7 @@ dup() { docker-compose up -d; }
 dupr() { docker-compose restart; }
 ddown() { docker-compose down; }
 alias dl="docker ps -l -q"
-
+dclean() { docker system prune -a --volumes; docker builder prune; }
 
 # --------------------------
 # C/C++
