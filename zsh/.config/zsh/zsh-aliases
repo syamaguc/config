@@ -99,6 +99,9 @@ alias pscpu='ps auxf | sort -nr -k 3 | head -5'
 
 
 
+# --------------------------
+# editor
+# --------------------------
 function editor() {
     if command -v nvim > /dev/null; then
         nvim "$@"
@@ -106,8 +109,6 @@ function editor() {
         vim "$@"
     fi
 }
-
-vimo() { vim $(fzf); }
 
 # --------------------------
 # Architecture specific
