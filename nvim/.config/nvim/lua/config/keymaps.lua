@@ -27,7 +27,9 @@ local smart_quit = function()
   end
 end
 
+--- Smart quit
 keymap("n", "<leader><ESC>", "", { callback = smart_quit })
+keymap("n", "<leader>q", "", { callback = smart_quit })
 
 -- Sudo Save
 keymap("c", "W", "w !sudo tee % > /dev/null<CR>", opts)

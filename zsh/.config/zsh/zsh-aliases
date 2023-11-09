@@ -107,7 +107,7 @@ function editor() {
     fi
 }
 
-
+vimo() { vim $(fzf); }
 
 # --------------------------
 # Architecture specific
