@@ -100,6 +100,12 @@ alias pscpu='ps auxf | sort -nr -k 3 | head -5'
 
 
 # --------------------------
+# memory
+# --------------------------
+
+fim() { vim $(fzf-tmux --height 40% --reverse --border --preview 'bat --color="always" {}'); }
+
+# --------------------------
 # editor
 # --------------------------
 function editor() {
