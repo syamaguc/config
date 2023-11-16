@@ -60,6 +60,7 @@
   "plenary.nvim": { "branch": "master", "commit": "50012918b2fc8357b87cff2a7f7f0446e47da174" },
   "semshi": { "branch": "master", "commit": "eddc5304d7aa99e140c89f40393c9f109f4e9115" },
   "skkeleton": { "branch": "main", "commit": "276dedd33d036cd399fcd293a54b1553825a35ae" },
+  "skkeleton_indicator.nvim": { "branch": "main", "commit": "8acf07b2cde9307f04f65a0253a754de153ab7f5" },
   "sqlite.lua": { "branch": "master", "commit": "b7e28c8463254c46a8e61c52d27d6a2040492fc3" },
   "symbols-outline.nvim": { "branch": "master", "commit": "512791925d57a61c545bc303356e8a8f7869763c" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "6c921ca12321edaa773e324ef64ea301a1d0da62" },
