@@ -52,3 +52,11 @@ key_bindings:
   - { key: V, mods: Control|Shift, action: Paste }
   - { key: C, mods: Command, action: Copy }
   - { key: Key0, mods: Control, action: ResetFontSize }
+
+hints:
+  enabled:
+    - regex: "(https:|http:)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
+      command: { program: "google-chrome-stable", args: ["--incognito"] }
+      post_processing: true
+      mouse:
+        enabled: true
