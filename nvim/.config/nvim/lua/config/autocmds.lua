@@ -37,3 +37,23 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
     vim.api.nvim_exec('silent! normal! g`"zv', false)
   end,
 })
+
+-- Ctrl + P
+vim.api.nvim_create_autocmd({ "VimEnter" }, {
+  pattern = { "*" },
+  callback = function()
+    vim.cmd([[
+      nnoremap <silent><expr><C-P> (expand('%') =~ 'NERD_tree' ? "\<C-W>\<C-W>" : '').":FzfLua files<CR>"
+    ]])
+  end,
+})
+
+-- find word
+vim.api.nvim_create_autocmd({ "VimEnter" }, {
+  pattern = { "*" },
+  callback = function()
+    vim.cmd([[
+     nnoremap <leader>fw :lua require('fzf-lua').grep_cword()<CR>
+    ]])
+  end,
+})
