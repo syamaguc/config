@@ -1,6 +1,18 @@
 export ZDOTDIR=$HOME/.config/zsh
 echo "Hello, $USER."
 
+typeset -U path
+path=(
+  # Additional PATH
+  $HOME/.local/bin(N-/)
+  $HOME/bin(N-/)
+  $path
+)
+
+
+
+
+
 # OS specific settings
 
 case "$(uname -s)" in
