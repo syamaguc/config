@@ -12,6 +12,9 @@ cmd - k: yabai -m window --focus north || yabai -m display --focus north
 cmd - n: yabai -m window --focus next || yabai -m display --focus next
 cmd - p: yabai -m window --focus prev || yabai -m display --focus prev
 
+# close window
+cmd + shift - d : yabai -m window --close
+
 # toggle fullscreen
 cmd - escape: yabai -m window --toggle zoom-fullscreen
 
