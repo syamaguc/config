@@ -34,7 +34,7 @@ return {
   -- override nvim-cmp
   {
     "hrsh7th/nvim-cmp",
-    dependencies = { "vim-skk/skkeleton", "rinx/cmp-skkeleton" },
+    dependencies = { "vim-skk/skkeleton", "uga-rosa/cmp-skkeleton" },
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
       local cmp = require("cmp")
