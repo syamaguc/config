@@ -49,14 +49,34 @@ bright:
 window.opacity: 0.9
 
 key_bindings:
-  - { key: V, mods: Control|Shift, action: Paste }
-  - { key: C, mods: Command, action: Copy }
-  - { key: Key0, mods: Control, action: ResetFontSize }
+  - { key: Key0, mods: Command, action: ResetFontSize }
+  - { key: Equals, mods: Command, action: IncreaseFontSize }
+  - { key: Minus, mods: Command, action: DecreaseFontSize }
 
-hints:
-  enabled:
-    - regex: "(https:|http:)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
-      command: { program: "google-chrome-stable", args: ["--incognito"] }
-      post_processing: true
-      mouse:
-        enabled: true
+linux:
+  hints:
+    enabled:
+      - regex: "(https:|http:)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
+        command: { program: "google-chrome-stable", args: ["--incognito"] }
+        post_processing: true
+        mouse:
+          enabled: true
+  key_bindings:
+    - { key: V, mods: Control|Shift, action: Paste }
+    - { key: C, mods: Command, action: Copy }
+
+macos:
+  hints:
+    enabled:
+      - regex: "(https:|http:)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
+        command:
+          {
+            program: "/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome",
+            args: ["--incognito"],
+          }
+        post_processing: true
+        mouse:
+          enabled: true
+  key_bindings:
+    - { key: V, mods: Command, action: Paste }
+    - { key: C, mods: Command, action: Copy }
