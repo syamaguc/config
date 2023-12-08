@@ -8,7 +8,7 @@ on:
 
 jobs:
   contaner-test:
-    name: ${{ matrix.container }}
+    name: Container - ${{ matrix.container }}
     runs-on: ubuntu-latest
 
     strategy:
@@ -20,10 +20,16 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - name: Install by package manager
+      - name: setup script
         run: |
           if [ "${{ matrix.container }}" = "archlinux:latest" ]; then
             bash ./script/setup.sh
+          fi
+        shell: bash
+
+      - name: install packages
+        run: |
+          if [ "${{ matrix.container }}" = "archlinux:latest" ]; then
             make detect
           fi
         shell: bash
@@ -34,7 +40,7 @@ jobs:
         shell: bash
 
   os-test:
-    name: OS ${{ matrix.os }}
+    name: OS - ${{ matrix.os }}
 
     strategy:
       matrix:
@@ -43,13 +49,15 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
+      - name: setup script
+        run: |
+          bash ./script/setup.sh
+        shell: bash
       - name: Install dependencies
         run: |
           if [ "${{ runner.os }}" = "Linux" ]; then
-            bash ./script/setup.sh
             make detect
           elif [ "${{ runner.os }}" = "macOS" ]; then
-            bash ./script/setup.sh
             make detect
           fi
         shell: bash
