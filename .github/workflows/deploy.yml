@@ -23,8 +23,7 @@ jobs:
       - name: Install by package manager
         run: |
           if [ "${{ matrix.container }}" = "archlinux:latest" ]; then
-            pacman -S sudo
-            sudo pacman -Syu
+            make setup-archlinux
           fi
         shell: bash
 
@@ -43,11 +42,12 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
-      - name: Set up Chrome
+      - name: Install dependencies
         run: |
           if [ "${{ runner.os }}" = "Linux" ]; then
+            make setup-ubuntu
             sudo apt-get update && sudo apt-get upgrade
           elif [ "${{ runner.os }}" = "macOS" ]; then
-            brew update && brew upgrade
+            make setup-mac
           fi
         shell: bash
