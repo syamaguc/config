@@ -110,8 +110,7 @@ function ubuntu_prepare() {
 function darwin_prepare() {
 	brew update
 	brew install make stow
-	brew bundle --file=Brewfile
-	#skk_setting
+	brew bundle Brewfile
 }
 
 function common_after_install() {
