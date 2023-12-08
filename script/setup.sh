@@ -78,17 +78,16 @@ function install_yay() {
 	esac
 }
 
-
 function skk_setting() {
 	rm -rf ~/Library/Application\ Support/AquaSKK/keymap.conf
 	cp /Library/Input\ Methods/AquaSKK.app/Contents/Resources/keymap.conf ~/Library/Application\ Support/AquaSKK/keymap.conf
-	echo "StickyKey  ;" >> ~/Library/Application\ Support/AquaSKK/keymap.conf
+	echo "StickyKey  ;" >>~/Library/Application\ Support/AquaSKK/keymap.conf
 
 }
 
-function tmux_setting(){
+function tmux_setting() {
 	if [ -f "$HOME/.tmux/plugins/tpm" ]; then
-    ;
+		:
 	else
 		git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
 	fi
@@ -112,12 +111,12 @@ function darwin_prepare() {
 	brew update
 	brew install make stow
 	brew bundle --file=Brewfile
-  #skk_setting
+	#skk_setting
 }
 
 function common_after_install() {
 	sudo chsh -s /bin/zsh
-  tmux_setting
+	tmux_setting
 }
 
 declare -a info=($(get_os_info))
@@ -138,10 +137,10 @@ case ${info[0]} in
 			ubuntu_prepare
 			common_after_install
 		else
-			echo "Noe Implemented"
+			:
 		fi
 	else
-		echo "Noe Implemented"
+		:
 	fi
 	;;
 "arm64")
@@ -149,7 +148,7 @@ case ${info[0]} in
 		darwin_prepare
 		common_after_install
 	else
-		echo "Noe Implemented"
+		:
 	fi
 	;;
 *)

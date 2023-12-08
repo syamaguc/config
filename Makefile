@@ -35,7 +35,7 @@ link:
 		elif [ "$(DISTRO)" = "arch" ]; then \
 			stow -v $(COMMON) $(LOCAL_COMMON) $(LINUX);\
 		else \
-			;\
+			:\
 		fi; \
 	elif [ "$(UNAME_S)" = "Darwin" ]; then \
 		if [ "$(UNAME_M)" = "arm64" ]; then \
@@ -43,10 +43,8 @@ link:
 		elif [ "$(UNAME_M)" = "x86_64" ]; then \
 			stow -v $(COMMON) $(LOCAL_COMMON) $(MAC_OS);\
 		else \
-			; \
+			:\
 		fi; \
-	else \
-		; \
 	fi
 
-.PHONY: archlinux mac local server clean ci
+.PHONY: archlinux mac local server clean link
