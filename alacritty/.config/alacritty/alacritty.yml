@@ -62,8 +62,8 @@ linux:
         mouse:
           enabled: true
   key_bindings:
-    - { key: V, mods: Control|Shift, action: Paste }
-    - { key: C, mods: Command, action: Copy }
+    - { key: V, mods: Control, action: Paste }
+    - { key: C, mods: Control, action: Copy }
 
 macos:
   hints:
