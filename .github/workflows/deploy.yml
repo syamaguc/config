@@ -23,7 +23,7 @@ jobs:
       - name: Install by package manager
         run: |
           if [ "${{ matrix.container }}" = "archlinux:latest" ]; then
-            bash ./script/setup-linux.sh
+            bash ./script/setup.sh
             sudo pacman -Syu --noconfirm
           fi
         shell: bash
@@ -46,9 +46,9 @@ jobs:
       - name: Install dependencies
         run: |
           if [ "${{ runner.os }}" = "Linux" ]; then
-            bash ./script/setup-linux.sh
+            bash ./script/setup.sh
             sudo apt-get update
           elif [ "${{ runner.os }}" = "macOS" ]; then
-            make setup-mac
+            bash ./script/setup.sh
           fi
         shell: bash

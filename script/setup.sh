@@ -51,6 +51,15 @@ get_os_info() {
 	echo $(get_arch) $(get_os) $(get_distro)
 }
 
+linux_prepare() {
+	useradd -m -G wheel -s /bin/bash syamaguc
+	echo 'syamaguc ALL=(ALL) NOPASSWD: ALL' >>/etc/sudoers
+	echo 'en_US.UTF-8 UTF-8' >/etc/locale.gen
+	locale-gen
+	echo 'LANG=en_US.UTF-8' >/etc/locale.conf
+	ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+}
+
 declare -a info=($(get_os_info))
 
 case ${info[0]} in
@@ -58,24 +67,23 @@ case ${info[0]} in
 	if [[ ${info[1]} == "Linux" ]]; then
 		if [[ ${info[2]} == "arch" ]]; then
 			echo "start ${info[0]} ${info[1]} ${info[2]} setting..."
-			bash script/setup-arch.sh
-			bash symlink.sh git zsh nvim tmux alacritty bin x i3 i3blocks rofi conky
+			#bash script/setup-arch.sh
 		elif [[ ${info[2]} == "Ubuntu" ]]; then
 			echo "start ${info[0]} ${info[1]} ${info[2]} setting..."
-			bash script/setup-ubuntu.sh
-			bash symlink.sh git zsh nvim
+			#bash script/setup-ubuntu.sh
+		elif [[ ${info[1]} == "Mac" ]]; then
+			echo "Noe Implemented"
 		fi
 	fi
 	;;
 "arm64")
 	if [[ ${info[1]} == "Mac" ]]; then
 		echo "start ${info[0]} ${info[1]} ${info[2]} setting..."
-		bash script/setup-mac-arm64.sh
-		bash symlink.sh git zsh nvim tmux alacritty bin yabai skhd
+		#bash script/setup-mac-arm64.sh
 	elif [[ ${info[1]} == "" ]]; then
-		echo ""
+		echo "Noe Implemented"
 	else
-		echo ""
+		echo "Noe Implemented"
 	fi
 	;;
 *)

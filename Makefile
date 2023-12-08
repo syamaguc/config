@@ -4,6 +4,8 @@ LINUX = x i3 i3blocks picom rofi conky libskk dunst
 MAC_OS = yabai skhd
 
 archlinux: local
+	sudo pacman -Syu --noconfirm
+	sudo pacman -S stow --noconfirm
 	@stow -v $(LINUX)
 
 mac: local aquaskk
