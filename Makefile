@@ -54,14 +54,11 @@ detect:
 	@echo "Architecture: $(UNAME_M)"
 	@echo "Distro: $(DISTRO)"
 	
-	# LINUX
 	@if [ "$(UNAME_S)" = "Linux" ]; then \
-		# Ubuntu
 		if [ "$(DISTRO)" = "ubuntu" ]; then \
 			echo "Running Ubuntu specific tasks"; \
 			cat script/package.apt.txt | xargs sudo apt-get install -y;\
 			stow -v $(COMMON) $(LOCAL_COMMON) $(LINUX);\
-		# Arch Linux
 		elif [ "$(DISTRO)" = "arch" ]; then \
 			echo "Running Arch Linux specific tasks"; \
 			cat script/package.pacman.txt | xargs pacman -S --noconfirm;\
@@ -69,12 +66,9 @@ detect:
 		else \
 			echo "Unsupported Linux distro: $(DISTRO)"; \
 		fi; \
-	# MAX OS
 	elif [ "$(UNAME_S)" = "Darwin" ]; then \
-		# Apple Silicon
 		if [ "$(UNAME_M)" = "arm64" ]; then \
 			echo "Running tasks for macOS on ARM64"; \
-		# X86_64
 		elif [ "$(UNAME_M)" = "x86_64" ]; then \
 			echo "Running tasks for macOS on x86_64"; \
 			brew bundle --file=script/Brewfile; \
