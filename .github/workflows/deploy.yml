@@ -30,7 +30,7 @@ jobs:
       - name: install packages
         run: |
           if [ "${{ matrix.container }}" = "archlinux:latest" ]; then
-            make detect
+            make ci
           fi
         shell: bash
 
@@ -56,8 +56,8 @@ jobs:
       - name: Install dependencies
         run: |
           if [ "${{ runner.os }}" = "Linux" ]; then
-            make detect
+            make ci
           elif [ "${{ runner.os }}" = "macOS" ]; then
-            make detect
+            make ci
           fi
         shell: bash

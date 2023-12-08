@@ -4,12 +4,12 @@
 # 32bit(Intel) -> i686
 # 64bit(Intel) -> x86_64
 # 64bit(AMD)   -> arm64
-get_arch() {
+function get_arch() {
 	echo $(uname -m)
 }
 
 # ------ Get OS -------
-get_os() {
+function get_os() {
 	if [ "$(uname)" == 'Darwin' ]; then
 		OS='Mac'
 	elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
@@ -23,7 +23,7 @@ get_os() {
 }
 
 # ------ If linux, get distribution name -----
-get_distro() {
+function get_distro() {
 	if [ -e /etc/debian_version ] || [ -e /etc/debian_release ]; then
 		# Check Ubuntu or Debian
 		if [ -e /etc/lsb-release ]; then
@@ -47,17 +47,36 @@ get_distro() {
 }
 
 # Get distribution and bit
-get_os_info() {
+function get_os_info() {
 	echo $(get_arch) $(get_os) $(get_distro)
 }
 
-linux_prepare() {
+function linux_prepare() {
 	useradd -m -G wheel -s /bin/bash syamaguc
 	echo 'syamaguc ALL=(ALL) NOPASSWD: ALL' >>/etc/sudoers
 	echo 'en_US.UTF-8 UTF-8' >/etc/locale.gen
 	locale-gen
 	echo 'LANG=en_US.UTF-8' >/etc/locale.conf
 	ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+}
+
+function install_yay() {
+	which yay >/dev/null 2>&1
+	case $? in
+	0) ;;
+
+	1)
+		echo "Install yay ..."
+		mkdir -p "$HOME/tmp"
+		cd "$HOME/tmp" || exit
+		pacman -S git base-devel --noconfirm --needed
+		git clone https://aur.archlinux.org/yay.git
+		cd yay
+		makepkg -si --noconfirm
+		cd - || exit
+		sudo rm -rf "$HOME/tmp/yay"
+		;;
+	esac
 }
 
 declare -a info=($(get_os_info))
@@ -69,16 +88,17 @@ case ${info[0]} in
 			echo "start ${info[0]} ${info[1]} ${info[2]} setting..."
 			linux_prepare
 			pacman -Syu --noconfirm
-			pacman -S sudo make stow --noconfirm
+			pacman -S sudo make stow --noconfirm --needed
+			install_yay
 		elif [[ ${info[2],,} == "ubuntu" ]]; then
 			echo "start ${info[0]} ${info[1]} ${info[2]} setting..."
 			linux_prepare
 			sudo apt-get update -y
 			sudo apt-get install make stow -y
-		elif [[ ${info[1],,} == "mac" ]]; then
+		else
 			echo "Noe Implemented"
 		fi
-	elif [[ ${info[1],,} == "linux" ]]; then
+	elif [[ ${info[1],,} == "mac" ]]; then
 		echo "start ${info[0]} ${info[1]} ${info[2]} setting..."
 		whoami
 		brew update

@@ -20,32 +20,10 @@ aquaskk:
 server:
 	@stow -v $(COMMON)
 
-
-
-setup-mac:
-	brew update
-
-setup-archlinux: setup-linux
-	pacman -Syu --noconfirm
-	pacman -S sudo --noconfirm
-
-setup-ubuntu: setup-linux
-	apt-get update
-
-setup-linux:
-	useradd -m -G wheel -s /bin/bash syamaguc
-	echo 'syamaguc ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
-	echo 'en_US.UTF-8 UTF-8' > /etc/locale.gen 
-	locale-gen 
-	echo 'LANG=en_US.UTF-8' > /etc/locale.conf 
-	ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime 
-	hwclock --systohc 
-
 clean:
 	@stow -Dv */
 
-
-detect:
+ci:
 	$(eval UNAME_S := $(shell uname -s))
 	$(eval UNAME_M := $(shell uname -m))
 	$(eval DISTRO := $(if $(shell grep -s 'ID=' /etc/os-release),$(shell . /etc/os-release; echo $$ID),unknown))
@@ -61,7 +39,7 @@ detect:
 			stow -v $(COMMON) $(LOCAL_COMMON) $(LINUX);\
 		elif [ "$(DISTRO)" = "arch" ]; then \
 			echo "Running Arch Linux specific tasks"; \
-			cat script/package.pacman.txt | xargs pacman -S --noconfirm;\
+			cat script/package.pacman.txt | xargs pacman -S --noconfirm --needed;\
 			stow -v $(COMMON) $(LOCAL_COMMON) $(LINUX);\
 		else \
 			echo "Unsupported Linux distro: $(DISTRO)"; \
@@ -79,3 +57,5 @@ detect:
 	else \
 		echo "Unsupported OS"; \
 	fi
+
+.PHONY: archlinux mac local server clean ci
