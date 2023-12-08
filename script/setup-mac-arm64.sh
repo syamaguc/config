@@ -5,6 +5,10 @@ BASE=(
 	alacritty
 )
 
+CASK=(
+
+)
+
 function brew-install() {
 	printf "Install basics ...\n"
 
@@ -13,11 +17,18 @@ function brew-install() {
 	done
 }
 
+function brew-cask-install() {
+	printf "Install cask ...\n"
+
+	for app in "${CASK[@]}"; do
+		brew install --cask "$app"
+	done
+}
+
 function font-install() {
 	bew tap homebrew/cask-fonts
 	brew install font-ricty-diminished
 	brew install font-hack-nerd-font
-
 }
 
 function fzf-install() {

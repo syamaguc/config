@@ -45,3 +45,34 @@ setup-linux:
 
 clean:
 	@stow -Dv */
+
+
+detect:
+	$(eval UNAME_S := $(shell uname -s))
+	$(eval UNAME_M := $(shell uname -m))
+	$(eval DISTRO := $(if $(shell grep -s 'ID=' /etc/os-release),$(shell . /etc/os-release; echo $$ID),unknown))
+	
+	@echo "OS: $(UNAME_S)"
+	@echo "Architecture: $(UNAME_M)"
+	@echo "Distro: $(DISTRO)"
+	
+	@if [ "$(UNAME_S)" = "Linux" ]; then \
+		if [ "$(DISTRO)" = "ubuntu" ]; then \
+			echo "Running Ubuntu specific tasks"; \
+		elif [ "$(DISTRO)" = "arch" ]; then \
+			echo "Running Arch Linux specific tasks"; \
+		else \
+			echo "Unsupported Linux distro: $(DISTRO)"; \
+		fi; \
+	elif [ "$(UNAME_S)" = "Darwin" ]; then \
+		if [ "$(UNAME_M)" = "arm64" ]; then \
+			echo "Running tasks for macOS on ARM64"; \
+		elif [ "$(UNAME_M)" = "x86_64" ]; then \
+			echo "Running tasks for macOS on x86_64"; \
+		else \
+			echo "Unsupported macOS architecture"; \
+		fi; \
+	else \
+		echo "Unsupported OS"; \
+	fi
+	

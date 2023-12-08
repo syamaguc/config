@@ -24,7 +24,7 @@ jobs:
         run: |
           if [ "${{ matrix.container }}" = "archlinux:latest" ]; then
             bash ./script/setup.sh
-            sudo pacman -Syu --noconfirm
+            make detect
           fi
         shell: bash
 
@@ -47,8 +47,9 @@ jobs:
         run: |
           if [ "${{ runner.os }}" = "Linux" ]; then
             bash ./script/setup.sh
-            sudo apt-get update
+            make detect
           elif [ "${{ runner.os }}" = "macOS" ]; then
             bash ./script/setup.sh
+            make detect
           fi
         shell: bash
