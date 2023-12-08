@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  contaner-test:
+    name: OS ${{ matrix.container }}
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        container: ["archlinux:latest", "ubuntu:latest"]
+
+    container:
+      image: ${{ matrix.container }}
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install by package manager
+        run: |
+          if [ "${{ matrix.container }}" = "archlinux:latest" ]; then
+            sudo pacman -Syu
+          fi
+        shell: bash
+
+      - name: Build with source
+        run: |
+          printenv
+        shell: bash
+
+  os-test:
+    name: OS ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Chrome
+        run: |
+          if [ "${{ runner.os }}" = "Linux" ]; then
+            sudo apt-get update && sudo apt-get upgrade
+          elif [ "${{ runner.os }}" = "macOS" ]; then
+            brew update && brew upgrade
+          fi
+        shell: bash
