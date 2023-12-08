@@ -78,6 +78,13 @@ case ${info[0]} in
 		elif [[ ${info[1],,} == "mac" ]]; then
 			echo "Noe Implemented"
 		fi
+	elif [[ ${info[1],,} == "linux" ]]; then
+		echo "start ${info[0]} ${info[1]} ${info[2]} setting..."
+		whoami
+		brew update
+		brew install make stow
+	else
+		echo "Noe Implemented"
 	fi
 	;;
 "arm64")
@@ -87,8 +94,6 @@ case ${info[0]} in
 		brew update
 		brew install make stow
 		#bash script/setup-mac-arm64.sh
-	elif [[ ${info[1]} == "" ]]; then
-		echo "Noe Implemented"
 	else
 		echo "Noe Implemented"
 	fi
