@@ -110,7 +110,7 @@ function ubuntu_prepare() {
 function darwin_prepare() {
 	brew update
 	brew install make stow
-	brew bundle Brewfile
+	brew bundle --file="$HOME/config/script/Brewfile"
 }
 
 function common_after_install() {
