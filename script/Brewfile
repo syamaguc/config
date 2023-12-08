@@ -3,7 +3,3 @@ brew "koekeishiya/formulae/skhd"
 brew "koekeishiya/formulae/yabai"
 
 cask "alacritty"
-cask "font-devicons"
-cask "font-hack-nerd-font"
-cask "font-noto-nerd-font"
-cask "font-ricty-diminished"

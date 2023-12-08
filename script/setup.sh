@@ -81,6 +81,8 @@ function install_yay() {
 
 declare -a info=($(get_os_info))
 
+get_os_info
+
 case ${info[0]} in
 "x86_64")
 	if [[ ${info[1],,} == "linux" ]]; then
@@ -98,13 +100,6 @@ case ${info[0]} in
 		else
 			echo "Noe Implemented"
 		fi
-	elif [[ ${info[1],,} == "mac" ]]; then
-		echo "start ${info[0]} ${info[1]} ${info[2]} setting..."
-		whoami
-		brew update
-		brew install make stow
-	else
-		echo "Noe Implemented"
 	fi
 	;;
 "arm64")
