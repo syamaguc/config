@@ -4,8 +4,6 @@ LINUX = x i3 i3blocks picom rofi conky libskk dunst
 MAC_OS = yabai skhd
 
 archlinux: local
-	sudo pacman -Syu --noconfirm
-	sudo pacman -S stow --noconfirm
 	@stow -v $(LINUX)
 
 mac: local aquaskk
@@ -59,8 +57,12 @@ detect:
 	@if [ "$(UNAME_S)" = "Linux" ]; then \
 		if [ "$(DISTRO)" = "ubuntu" ]; then \
 			echo "Running Ubuntu specific tasks"; \
+			cat script/packages.pacman.txt | xargs pacman -S --noconfirm;\
+			stow -v $(COMMON) $(LOCAL_COMMON) $(LINUX);\
 		elif [ "$(DISTRO)" = "arch" ]; then \
 			echo "Running Arch Linux specific tasks"; \
+			cat script/packages.apt.txt | xargs sudo apt-get install -y;\
+			stow -v $(COMMON) $(LOCAL_COMMON) $(LINUX);\
 		else \
 			echo "Unsupported Linux distro: $(DISTRO)"; \
 		fi; \
@@ -69,6 +71,8 @@ detect:
 			echo "Running tasks for macOS on ARM64"; \
 		elif [ "$(UNAME_M)" = "x86_64" ]; then \
 			echo "Running tasks for macOS on x86_64"; \
+			brew bundle --file=script/Brewfile; \
+			stow -v $(COMMON) $(LOCAL_COMMON) $(MAC_OS);\
 		else \
 			echo "Unsupported macOS architecture"; \
 		fi; \
