@@ -11,7 +11,7 @@ function get_arch() {
 # ------ Get OS -------
 function get_os() {
 	if [ "$(uname)" == 'Darwin' ]; then
-		OS='Mac'
+		OS='Darwin'
 	elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
 		OS='Linux'
 	elif [ "$(expr substr $(uname -s) 1 10)" == 'MINGW32_NT' ]; then
@@ -28,20 +28,20 @@ function get_distro() {
 		# Check Ubuntu or Debian
 		if [ -e /etc/lsb-release ]; then
 			# Ubuntu
-			distri_name="ubuntu"
+			distri_name="Ubuntu"
 		else
 			# Debian
-			distri_name="debian"
+			distri_name="Debian"
 		fi
 	elif [ -e /etc/arch-release ]; then
 		# Arch Linux
-		distri_name="arch"
+		distri_name="Arch"
 	elif [ -e /etc/fedora-release ]; then
 		# Fedra
-		distri_name="fedora"
+		distri_name="Fedora"
 	else
 		# Other
-		distri_name="unkown"
+		distri_name="Unknown"
 	fi
 	echo $distri_name
 }
@@ -69,7 +69,6 @@ function install_yay() {
 		echo "Install yay ..."
 		mkdir -p "$HOME/tmp"
 		cd "$HOME/tmp" || exit
-		pacman -S git base-devel --noconfirm --needed
 		git clone https://aur.archlinux.org/yay.git
 		cd yay
 		makepkg -si --noconfirm
@@ -79,41 +78,81 @@ function install_yay() {
 	esac
 }
 
+
+function skk_setting() {
+	rm -rf ~/Library/Application\ Support/AquaSKK/keymap.conf
+	cp /Library/Input\ Methods/AquaSKK.app/Contents/Resources/keymap.conf ~/Library/Application\ Support/AquaSKK/keymap.conf
+	echo "StickyKey  ;" >> ~/Library/Application\ Support/AquaSKK/keymap.conf
+
+}
+
+function tmux_setting(){
+	if [ -f "$HOME/.tmux/plugins/tpm" ]; then
+    ;
+	else
+		git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+	fi
+}
+
+function arch_prepare() {
+	pacman -Syu --noconfirm
+	pacman -S sudo make stow git base-devel --noconfirm --needed
+	install_yay
+	cat package.pacman.txt | xargs pacman -S --noconfirm --needed
+
+}
+
+function ubuntu_prepare() {
+	sudo apt-get update -y
+	sudo apt-get install make stow -y
+	cat package.apt.txt | xargs sudo apt-get install -y
+}
+
+function darwin_prepare() {
+	brew update
+	brew install make stow
+	brew bundle --file=Brewfile
+  #skk_setting
+}
+
+function common_after_install() {
+	sudo chsh -s /bin/zsh
+  tmux_setting
+}
+
 declare -a info=($(get_os_info))
 
 get_os_info
 
 case ${info[0]} in
 "x86_64")
-	if [[ ${info[1],,} == "linux" ]]; then
-		if [[ ${info[2],,} == "arch" ]]; then
-			echo "start ${info[0]} ${info[1]} ${info[2]} setting..."
+	if [[ ${info[1]} == "Darwin" ]]; then
+		darwin_prepare
+	elif [[ ${info[1]} == "Linux" ]]; then
+		if [[ ${info[2]} == "Arch" ]]; then
 			linux_prepare
-			pacman -Syu --noconfirm
-			pacman -S sudo make stow --noconfirm --needed
-			install_yay
-		elif [[ ${info[2],,} == "ubuntu" ]]; then
-			echo "start ${info[0]} ${info[1]} ${info[2]} setting..."
+			arch_prepare
+			common_after_install
+		elif [[ ${info[2]} == "Ubuntu" ]]; then
 			linux_prepare
-			sudo apt-get update -y
-			sudo apt-get install make stow -y
+			ubuntu_prepare
+			common_after_install
 		else
 			echo "Noe Implemented"
 		fi
+	else
+		echo "Noe Implemented"
 	fi
 	;;
 "arm64")
-	if [[ ${info[1],,} == "mac" ]]; then
-		echo "start ${info[0]} ${info[1]} ${info[2]} setting..."
-		whoami
-		brew update
-		brew install make stow
-		#bash script/setup-mac-arm64.sh
+	if [[ ${info[1]} == "Darwin" ]]; then
+		darwin_prepare
+		common_after_install
 	else
 		echo "Noe Implemented"
 	fi
 	;;
 *)
-	echo "sorry,32bits is unsupported"
+	echo "Sorry, 32bits is unsupported"
 	;;
 esac

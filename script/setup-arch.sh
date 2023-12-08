@@ -94,7 +94,7 @@ function docker-setting() {
 
 function tmux-setting() {
 	if [ -f "$HOME/.tmux/plugins/tpm" ]; then
-		echo "plugin already exist"
+    ;
 	else
 		git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
 	fi

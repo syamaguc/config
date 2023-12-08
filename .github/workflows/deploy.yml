@@ -22,21 +22,12 @@ jobs:
       - uses: actions/checkout@v4
       - name: setup script
         run: |
-          if [ "${{ matrix.container }}" = "archlinux:latest" ]; then
-            bash ./script/setup.sh
-          fi
+          bash ./script/setup.sh
         shell: bash
 
-      - name: install packages
+      - name: stow link
         run: |
-          if [ "${{ matrix.container }}" = "archlinux:latest" ]; then
-            make ci
-          fi
-        shell: bash
-
-      - name: Build with source
-        run: |
-          printenv
+          make link
         shell: bash
 
   os-test:
@@ -49,15 +40,11 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
-      - name: setup script
+      - name: Setup script
         run: |
           bash ./script/setup.sh
         shell: bash
-      - name: Install dependencies
+      - name: stow link
         run: |
-          if [ "${{ runner.os }}" = "Linux" ]; then
-            make ci
-          elif [ "${{ runner.os }}" = "macOS" ]; then
-            make ci
-          fi
+          make ci
         shell: bash
