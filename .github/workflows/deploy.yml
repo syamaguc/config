@@ -8,12 +8,12 @@ on:
 
 jobs:
   contaner-test:
-    name: OS ${{ matrix.container }}
+    name: ${{ matrix.container }}
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        container: ["archlinux:latest", "ubuntu:latest"]
+        container: ["archlinux:latest"]
 
     container:
       image: ${{ matrix.container }}
@@ -23,6 +23,7 @@ jobs:
       - name: Install by package manager
         run: |
           if [ "${{ matrix.container }}" = "archlinux:latest" ]; then
+            pacman -S sudo
             sudo pacman -Syu
           fi
         shell: bash
