@@ -64,26 +64,24 @@ declare -a info=($(get_os_info))
 
 case ${info[0]} in
 "x86_64")
-	if [[ ${info[1]} == "Linux" ]]; then
-		if [[ ${info[2]} == "arch" ]]; then
+	if [[ ${info[1],,} == "linux" ]]; then
+		if [[ ${info[2],,} == "arch" ]]; then
 			echo "start ${info[0]} ${info[1]} ${info[2]} setting..."
 			linux_prepare
 			pacman -Syu --noconfirm
 			pacman -S sudo make stow --noconfirm
-			#bash script/setup-arch.sh
-		elif [[ ${info[2]} == "Ubuntu" ]]; then
+		elif [[ ${info[2],,} == "ubuntu" ]]; then
 			echo "start ${info[0]} ${info[1]} ${info[2]} setting..."
 			linux_prepare
 			sudo apt-get update -y
 			sudo apt-get install make stow -y
-			#bash script/setup-ubuntu.sh
-		elif [[ ${info[1]} == "Mac" ]]; then
+		elif [[ ${info[1],,} == "mac" ]]; then
 			echo "Noe Implemented"
 		fi
 	fi
 	;;
 "arm64")
-	if [[ ${info[1]} == "Mac" ]]; then
+	if [[ ${info[1],,} == "mac" ]]; then
 		echo "start ${info[0]} ${info[1]} ${info[2]} setting..."
 		whoami
 		brew update
