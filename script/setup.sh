@@ -68,14 +68,14 @@ case ${info[0]} in
 		if [[ ${info[2]} == "arch" ]]; then
 			echo "start ${info[0]} ${info[1]} ${info[2]} setting..."
 			linux_prepare
-			pacman -Syu
-			pacman -S make stow
+			pacman -Syu --noconfirm
+			pacman -S sudo make stow --noconfirm
 			#bash script/setup-arch.sh
 		elif [[ ${info[2]} == "Ubuntu" ]]; then
 			echo "start ${info[0]} ${info[1]} ${info[2]} setting..."
 			linux_prepare
-			sudo apt-get update
-			sudo apt-get install make stow
+			sudo apt-get update -y
+			sudo apt-get install make stow -y
 			#bash script/setup-ubuntu.sh
 		elif [[ ${info[1]} == "Mac" ]]; then
 			echo "Noe Implemented"
