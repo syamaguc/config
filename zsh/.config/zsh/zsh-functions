@@ -32,23 +32,23 @@ function zsh_add_completion() {
 
 # Auto venv for python
 
-AUTOSWITCH_ACTIVATE="venv/bin/activate"
-
-function cd() {
-  if [[ -d ./venv ]] ; then
-    source deactivate
-  elif [[ -d ./.venv ]] ; then
-    source deactivate
-  fi
-
-  builtin cd $1
-
-  if [[ -d ./venv ]] ; then
-	  source ./venv/bin/activate
-  elif [[ -d ./.venv ]] ; then
-	  source ./.venv/bin/activate
-  fi
-}
+# AUTOSWITCH_ACTIVATE="venv/bin/activate"
+# 
+# function cd() {
+#   if [[ -d ./venv ]] ; then
+#     source deactivate
+#   elif [[ -d ./.venv ]] ; then
+#     source deactivate
+#   fi
+# 
+#   builtin cd $1
+# 
+#   if [[ -d ./venv ]] ; then
+# 	  source ./venv/bin/activate
+#   elif [[ -d ./.venv ]] ; then
+# 	  source ./.venv/bin/activate
+#   fi
+# }
 
 
 # search ghq repo & move

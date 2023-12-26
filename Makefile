@@ -1,5 +1,5 @@
 COMMON = git zsh vim
-LOCAL_COMMON = gh lazygit nvim tmux alacritty bin ranger
+LOCAL_COMMON = gh lazygit nvim tmux alacritty bin ranger rtx
 LINUX = x i3 i3blocks picom rofi conky libskk dunst
 MAC_OS = yabai skhd
 
