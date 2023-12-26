@@ -2,4 +2,4 @@
 require("config.lazy")
 
 --- for Python
-vim.g.python3_host_prog = "$PYENV_ROOT" .. "/versions/neovim3/bin/python"
+vim.g.python3_host_prog = "/Users/syamaguc/.local/share/rtx/installs/python/3.11.7/bin/python"
