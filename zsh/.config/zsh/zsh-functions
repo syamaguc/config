@@ -36,9 +36,9 @@ AUTOSWITCH_ACTIVATE="venv/bin/activate"
 
 function cd() {
   if [[ -d ./venv ]] ; then
-    source deactivate
+    deactivate
   elif [[ -d ./.venv ]] ; then
-    source deactivate
+    deactivate
   fi
 
   builtin cd $1
