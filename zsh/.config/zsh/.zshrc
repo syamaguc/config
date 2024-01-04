@@ -1,5 +1,6 @@
 source $ZDOTDIR/zshrc
-eval "$(rtx activate zsh)"
+eval "$(~/.local/bin/mise activate zsh)"
+
 
 # tmux auto start
 tmux has-session &>/dev/null
