@@ -2,4 +2,4 @@
 require("config.lazy")
 
 --- for Python
-vim.g.python3_host_prog = "/Users/syamaguc/.local/share/mise/installs/python/3.11/bin/python3"
+vim.g.python3_host_prog = "~/.local/share/mise/installs/python/3.11/bin/python3"
