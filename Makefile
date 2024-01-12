@@ -12,8 +12,6 @@ mac: local aquaskk
 local: server
 	@stow -v $(LOCAL_COMMON)
 
-
-
 server:
 	@stow -v $(COMMON)
 
