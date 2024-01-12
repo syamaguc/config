@@ -1,5 +1,4 @@
 source $ZDOTDIR/zshrc
-eval "$(~/.local/bin/mise activate zsh)"
 
 
 # tmux auto start
@@ -24,3 +23,10 @@ if [[ $? = 0 && ! -n $TMUX ]]; then
             ;;
     esac
 fi
+
+
+# for mise
+eval "$(~/.local/bin/mise activate zsh)"
+
+# bun completions
+[ -s "/Users/syamaguc/.bun/_bun" ] && source "/Users/syamaguc/.bun/_bun"
