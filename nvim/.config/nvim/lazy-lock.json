@@ -1,7 +1,7 @@
 {
   "LazyVim": { "branch": "main", "commit": "879e29504d43e9f178d967ecc34d482f902e5a91" },
   "LuaSnip": { "branch": "master", "commit": "82108e7e31cc6fc223cc5df5cae6d89f70bb199f" },
-  "SchemaStore.nvim": { "branch": "main", "commit": "fcb1522fefd0f9029b7dc71aa2664d2d0ead0fb3" },
+  "SchemaStore.nvim": { "branch": "main", "commit": "aa03f815694c003892bb80efcf4d7c33aea3e009" },
   "aerial.nvim": { "branch": "master", "commit": "e2e3bc2df4490690ea005395eecdc8eeb30c4def" },
   "alpha-nvim": { "branch": "main", "commit": "29074eeb869a6cbac9ce1fbbd04f5f5940311b32" },
   "bufferline.nvim": { "branch": "main", "commit": "e48ce1805697e4bb97bc171c081e849a65859244" },
@@ -58,7 +58,7 @@
   "persistence.nvim": { "branch": "main", "commit": "ad538bfd5336f1335cdb6fd4e0b0eebfa6e12f32" },
   "plenary.nvim": { "branch": "master", "commit": "55d9fe89e33efd26f532ef20223e5f9430c8b0c0" },
   "semshi": { "branch": "master", "commit": "0182447e2ff4dfa04cd2dfe5f189e012c581ca45" },
-  "skkeleton": { "branch": "main", "commit": "322ebd211cb6d6c1fc35f6a504c0487a262fcde3" },
+  "skkeleton": { "branch": "main", "commit": "41836579b46a550179a38bcc753709fff5aaed46" },
   "skkeleton_indicator.nvim": { "branch": "main", "commit": "8acf07b2cde9307f04f65a0253a754de153ab7f5" },
   "sqlite.lua": { "branch": "master", "commit": "b7e28c8463254c46a8e61c52d27d6a2040492fc3" },
   "symbols-outline.nvim": { "branch": "master", "commit": "564ee65dfc9024bdde73a6621820866987cbb256" },

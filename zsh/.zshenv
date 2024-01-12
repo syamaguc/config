@@ -3,6 +3,7 @@ echo "Hello, $USER."
 
 typeset -U path
 path=(
+  $HOME/.local/share/mise/shims(N-/)
   # Additional PATH
   $HOME/.local/bin(N-/)
   $HOME/bin(N-/)

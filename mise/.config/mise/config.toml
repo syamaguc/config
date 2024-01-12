@@ -1,8 +1,8 @@
+[env]
+
 [tools]
 node = 'lts'
 python = ['3.11', '3.12']
 
-
 [settings]
 experimental = true
-
