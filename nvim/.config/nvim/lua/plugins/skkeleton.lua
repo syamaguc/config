@@ -11,7 +11,8 @@ return {
                 call skkeleton#config({ 
                     \  'globalJisyo': expand('~/.config/nvim/skk/SKK-JISYO.L'),
                     \  'eggLikeNewline': v:true,
-                    \  'userJisyo': expand('~/.config/nvim/skk/skkeleton')
+                    \  'userJisyo': expand('~/.config/nvim/skk/skkeleton'),
+                    \  'globalDictionaries': ['~/.config/nvim/skk/SKK-JISYO.L','~/Library/Application Support/AquaSKK/skk-jisyo.utf8']
                     \ })
             ]],
         false
