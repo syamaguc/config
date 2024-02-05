@@ -8,11 +8,9 @@ return {
       vim.api.nvim_set_keymap("c", "<C-j>", "<Plug>(skkeleton-toggle)", { noremap = true })
       vim.api.nvim_exec(
         [[
-                call skkeleton#config({ 
-                    \  'globalJisyo': expand('~/.config/nvim/skk/SKK-JISYO.L'),
+                call skkeleton#config({
                     \  'eggLikeNewline': v:true,
-                    \  'userJisyo': expand('~/.config/nvim/skk/skkeleton'),
-                    \  'globalDictionaries': ['~/.config/nvim/skk/SKK-JISYO.L','~/Library/Application Support/AquaSKK/skk-jisyo.utf8']
+                    \  'globalDictionaries': ['~/.config/nvim/skk/SKK-JISYO.L', 'euc-jp'],
                     \ })
             ]],
         false
