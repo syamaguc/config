@@ -1,4 +1,5 @@
 # config
+
 my dotfiles
 
 ## Usage
@@ -31,3 +32,8 @@ clean:
 	@stow -Dv */
 
 ```
+
+## Hardware
+
+- マザボ:
+  - TUF Gaming Z790-PRO WIFI
