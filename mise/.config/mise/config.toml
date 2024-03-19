@@ -1,7 +1,7 @@
 [tools]
 node = 'lts'
 deno = 'latest'
-python = ['3.11', '3.12']
+python = "3.11"
 
 
 [settings]
