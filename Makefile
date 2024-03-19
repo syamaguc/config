@@ -25,7 +25,7 @@ link:
 			echo "Not supported";\
 		fi; \
 	elif [ "$(UNAME_S)" = "Darwin" ]; then \
-		stow -v $(COMMON) $(LOCAL_COMMON) $(MAC_OS);\
+		stow -v $(COMMON) $(ADDITIONAL) $(MAC_OS);\
 	else \
 		echo "Not supported";\
 	fi
