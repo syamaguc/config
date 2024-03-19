@@ -11,6 +11,7 @@ return {
                 call skkeleton#config({
                     \  'eggLikeNewline': v:true,
                     \  'globalDictionaries': ['~/.config/nvim/skk/SKK-JISYO.L', 'euc-jp'],
+                    \  'userDictionary': '~/.config/nvim/skk/user.dict',
                     \ })
             ]],
         false
