@@ -1,21 +1,10 @@
-COMMON = git zsh vim
-LOCAL_COMMON = gh lazygit nvim tmux alacritty bin ranger mise
-LINUX = x i3 i3blocks picom rofi conky libskk dunst
+COMMON = git zsh nvim
+ADDITIONAL = lazygit tmux alacritty ranger mise bin
+UBUNTU = x_ubuntu regolith3 libskk
+ARCH_LINUX = x_arch i3 i3blocks picom rofi conky libskk dunst
 MAC_OS = yabai skhd
 
-archlinux: local
-	@stow -v $(LINUX)
-
-mac: local aquaskk
-	@stow -v $(MAC_OS)
-
-local: server
-	@stow -v $(LOCAL_COMMON)
-
-server:
-	@stow -v $(COMMON)
-
-clean:
+fclean:
 	@stow -Dv */
 
 link:
@@ -29,22 +18,16 @@ link:
 	
 	@if [ "$(UNAME_S)" = "Linux" ]; then \
 		if [ "$(DISTRO)" = "ubuntu" ]; then \
-			stow -v $(COMMON) $(LOCAL_COMMON) $(LINUX);\
+			stow -v $(COMMON) $(ADDITIONAL) $(UBUNTU);\
 		elif [ "$(DISTRO)" = "arch" ]; then \
-			stow -v $(COMMON) $(LOCAL_COMMON) $(LINUX);\
+			stow -v $(COMMON) $(ADDITIONAL) $(ARCH_LINUX);\
 		else \
 			echo "Not supported";\
 		fi; \
 	elif [ "$(UNAME_S)" = "Darwin" ]; then \
-		if [ "$(UNAME_M)" = "arm64" ]; then \
-			stow -v $(COMMON) $(LOCAL_COMMON) $(MAC_OS);\
-		elif [ "$(UNAME_M)" = "x86_64" ]; then \
-			stow -v $(COMMON) $(LOCAL_COMMON) $(MAC_OS);\
-		else \
-			echo "Not supported";\
-		fi; \
+		stow -v $(COMMON) $(LOCAL_COMMON) $(MAC_OS);\
 	else \
 		echo "Not supported";\
 	fi
 
-.PHONY: archlinux mac local server clean link
+.PHONY: fclean link
