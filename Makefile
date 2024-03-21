@@ -7,6 +7,11 @@ MAC_OS = yabai skhd spacebar
 fclean:
 	@stow -Dv */
 
+
+rename:
+	python3 ./bin/bin/random_rename.py
+
+
 link:
 	$(eval UNAME_S := $(shell uname -s))
 	$(eval UNAME_M := $(shell uname -m))
