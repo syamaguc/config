@@ -11,7 +11,13 @@ Darwin)
 	osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \"$SELECTED_WALLPAPER\""
 	;;
 
-Linux) ;;
+Linux)
+	cat <<EOF >$HOME/config/regolith3/.config/regolith3/wallpaper.Xresources
+regolith.lockscreen.wallpaper.file: $SELECTED_WALLPAPER
+regolith.wallpaper.file:            $SELECTED_WALLPAPER
+EOF
+	regolith-look refresh
+	;;
 
 CYGWIN* | MINGW32* | MSYS* | MINGW*) ;;
 
