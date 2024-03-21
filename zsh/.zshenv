@@ -1,10 +1,9 @@
 export ZDOTDIR=$HOME/.config/zsh
-echo "Hello, $USER."
+echo "Hello, $USER. $(uname -a)"
 
 typeset -U path
 path=(
   $HOME/.local/share/mise/shims(N-/)
-  # Additional PATH
   $HOME/.local/bin(N-/)
   $HOME/bin(N-/)
   $path

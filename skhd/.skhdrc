@@ -1,5 +1,7 @@
 # Restart
 cmd + shift - r : \
+    yabai --restart-service && \
+    skhd --restart-service && \
     /usr/bin/env osascript <<< \
         "display notification \"Restarting Yabai\" with title \"Yabai\""; \
     launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
@@ -13,7 +15,10 @@ cmd - n: yabai -m window --focus next || yabai -m display --focus next
 cmd - p: yabai -m window --focus prev || yabai -m display --focus prev
 
 # close window
-cmd + shift - d : yabai -m window --close
+cmd + shift - q : yabai -m window --close
+
+cmd - return : open -a "Alacritty"
+cmd + shift - return : open -a "Firefox"
 
 # toggle fullscreen
 cmd - escape: yabai -m window --toggle zoom-fullscreen
