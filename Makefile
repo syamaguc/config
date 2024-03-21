@@ -2,7 +2,7 @@ COMMON = git zsh nvim
 ADDITIONAL = lazygit tmux alacritty ranger mise bin
 UBUNTU = x_ubuntu regolith3 libskk
 ARCH_LINUX = x_arch i3 i3blocks picom rofi conky libskk dunst
-MAC_OS = yabai skhd
+MAC_OS = yabai skhd spacebar
 
 fclean:
 	@stow -Dv */
