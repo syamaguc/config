@@ -1,6 +1,6 @@
 COMMON = git zsh nvim
 ADDITIONAL = lazygit tmux alacritty ranger mise bin
-UBUNTU = x_ubuntu regolith3 libskk
+UBUNTU = regolith3 libskk
 ARCH_LINUX = x_arch i3 i3blocks picom rofi conky libskk dunst
 MAC_OS = yabai skhd spacebar
 
@@ -11,12 +11,16 @@ fclean:
 rename:
 	python3 ./bin/bin/random_rename.py
 
+keyboard:
+	$(eval HOSTNAME := $(shell hostname))
+	@if [ "$(HOSTNAME)" = "ThinkPad-E14-Gen3" ]; then \
+		stow -v thinkpad; \
+	fi
 
 link:
 	$(eval UNAME_S := $(shell uname -s))
 	$(eval UNAME_M := $(shell uname -m))
 	$(eval DISTRO := $(if $(shell grep -s 'ID=' /etc/os-release),$(shell . /etc/os-release; echo $$ID),unknown))
-	$(eval HOSTNAME := $(shell hostname))
 	
 	@echo "OS: $(UNAME_S)"
 	@echo "Architecture: $(UNAME_M)"
@@ -36,10 +40,6 @@ link:
 		stow -v $(COMMON) $(ADDITIONAL) $(MAC_OS);\
 	else \
 		echo "Not supported";\
-	fi \
-	# Xmodmap
-	@if [ "$(HOSTNAME)" = "Thinkpad-E14-Gen3" ]; then \
-		stow -v thinkpad; \
 	fi
 
-.PHONY: fclean link
+.PHONY: fclean link keyboard
