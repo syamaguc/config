@@ -19,5 +19,3 @@ _comp_options+=(globdots)		# Include hidden files.
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 autoload history-search-end
-
-

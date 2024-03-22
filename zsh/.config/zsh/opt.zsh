@@ -20,4 +20,3 @@ setopt inc_append_history
 
 # Colors
 autoload -Uz colors && colors
-

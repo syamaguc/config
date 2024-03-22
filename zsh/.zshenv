@@ -1,5 +1,5 @@
-neofetch
 export ZDOTDIR=$HOME/.config/zsh
+neofetch
 
 typeset -U path
 path=(
