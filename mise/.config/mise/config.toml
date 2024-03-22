@@ -4,5 +4,17 @@ deno = 'latest'
 python = "3.11.8"
 
 
+[tasks.neovim_python]
+description = "Install neovim & pynvim @pip"
+run = "pip install -U pip && pip install neovim pynvim"
+
+[tasks.neovim_node]
+description = "Install neovim @npm"
+run = "npm install -g neovim"
+
+[tasks.neovim]
+description = "Setup neovim"
+depends = ["neovim_node", "neovim_python"]
+
 [settings]
 experimental = true
