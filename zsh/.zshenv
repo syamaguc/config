@@ -1,5 +1,5 @@
-export ZDOTDIR=$HOME/.config/zsh
 echo "Hello, $USER. $(uname -a)"
+export ZDOTDIR=$HOME/.config/zsh
 
 typeset -U path
 path=(

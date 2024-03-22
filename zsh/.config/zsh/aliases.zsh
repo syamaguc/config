@@ -74,8 +74,8 @@ drmi() { docker rmi -f $(docker images -aq); }
 dup() { docker-compose up -d; }
 dupr() { docker-compose restart; }
 ddown() { docker-compose down; }
-alias dl="docker ps -l -q"
 dclean() { docker system prune -a --volumes; docker builder prune; }
+alias dl="docker ps -l -q"
 
 # --------------------------
 # C/C++
@@ -98,9 +98,8 @@ alias psmem='ps -auxf | sort -nr -k 4 | head -5'
 alias pscpu='ps -auxf | sort -nr -k 3 | head -5'
 
 
-
 # --------------------------
-# memory
+# find file
 # --------------------------
 
 fim() { nvim $(fzf-tmux --height 40% --reverse --border --preview 'bat --color="always" {}'); }
