@@ -17,7 +17,7 @@ keyboard:
 		stow -v thinkpad; \
 	fi
 
-link:
+link: keyboard
 	$(eval UNAME_S := $(shell uname -s))
 	$(eval UNAME_M := $(shell uname -m))
 	$(eval DISTRO := $(if $(shell grep -s 'ID=' /etc/os-release),$(shell . /etc/os-release; echo $$ID),unknown))
