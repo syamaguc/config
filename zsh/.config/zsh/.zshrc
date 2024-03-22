@@ -4,14 +4,14 @@
 source $ZDOTDIR/functions.zsh
 
 zsh_add_file "opt.zsh"
-zsh_add_file "keybind.zsh"
-zsh_add_file "prompt.zsh"
-zsh_add_file "completions.zsh"
-zsh_add_file "aliases.zsh"
 zsh_add_file "exports.zsh"
+zsh_add_file "aliases.zsh"
+zsh_add_file "plugin.zsh"
+zsh_add_file "prompt.zsh"
 zsh_add_file "vim.zsh"
 zsh_add_file "fzf.zsh"
-zsh_add_file "plugin.zsh"
+zsh_add_file "completions.zsh"
+zsh_add_file "keybind.zsh"
 zsh_add_file "tmux.zsh"
 
 
