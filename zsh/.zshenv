@@ -1,4 +1,4 @@
-echo "Hello, $USER. $(uname -a)"
+neofetch
 export ZDOTDIR=$HOME/.config/zsh
 
 typeset -U path
