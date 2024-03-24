@@ -2,19 +2,25 @@
 node = 'lts'
 deno = 'latest'
 python = "3.11.8"
+go = "1.22.1"
 
 
-[tasks.neovim_python]
+[tasks.python]
 description = "Install neovim & pynvim @pip"
 run = "pip install -U pip && pip install neovim pynvim"
 
-[tasks.neovim_node]
+[tasks.node]
 description = "Install neovim @npm"
 run = "npm install -g neovim"
 
-[tasks.neovim]
-description = "Setup neovim"
-depends = ["neovim_node", "neovim_python"]
+[tasks.ghq]
+description = "Install ghq"
+run = "go install github.com/x-motemen/ghq@latest"
+
+[tasks.setup]
+description = "Setup"
+depends = ["ghq","node", "python"]
+
 
 [settings]
 experimental = true
