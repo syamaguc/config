@@ -1,5 +1,4 @@
 export ZDOTDIR=$HOME/.config/zsh
-neofetch
 
 typeset -U path
 path=(
@@ -23,3 +22,5 @@ CYGWIN* | MINGW32* | MSYS* | MINGW*) ;;
 *) ;;
 
 esac
+
+neofetch
