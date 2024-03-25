@@ -2,7 +2,7 @@ import = ["~/.config/alacritty/color.toml","~/.config/alacritty/keybinding.toml"
 
 
 [window]
-opacity = 0.5
+opacity = 0.77
 
 [font]
 size = 12
