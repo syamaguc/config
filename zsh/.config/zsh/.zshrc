@@ -14,7 +14,6 @@ zsh_add_file "vim.zsh"
 zsh_add_file "tmux.zsh"
 zsh_add_file "keybind.zsh"
 
-
 ##############################
 #   Tools insert path
 ##############################
