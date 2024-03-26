@@ -22,5 +22,3 @@ CYGWIN* | MINGW32* | MSYS* | MINGW*) ;;
 *) ;;
 
 esac
-
-neofetch
