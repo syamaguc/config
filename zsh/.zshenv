@@ -22,3 +22,5 @@ CYGWIN* | MINGW32* | MSYS* | MINGW*) ;;
 *) ;;
 
 esac
+
+. "$HOME/.cargo/env"

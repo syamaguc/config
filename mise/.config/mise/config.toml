@@ -17,9 +17,13 @@ run = "npm install -g neovim"
 description = "Install ghq"
 run = "go install github.com/x-motemen/ghq@latest"
 
+[tasks.rust]
+description = "Install rust"
+run = "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
+
 [tasks.setup]
 description = "Setup"
-depends = ["ghq","node", "python"]
+depends = ["ghq","node", "python", "rust"]
 
 
 [settings]
