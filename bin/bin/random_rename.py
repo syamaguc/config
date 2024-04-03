@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import sys
 import os
 import random
 import string
@@ -28,6 +29,11 @@ def rename_files(folder_path):
 
 
 if __name__ == "__main__":
-    home_dir = Path.home()
-    folder_path = home_dir / "config" / "wallpaper"
-    rename_files(folder_path)
+    if len(sys.argv) < 2:
+        print("Usage: python random_rename.py [folder_path]")
+        sys.exit(1)
+    else:
+        folder_path = sys.argv[1]
+        home_dir = Path.home()
+        # folder_path = home_dir / "config" / "wallpaper"
+        rename_files(folder_path)
