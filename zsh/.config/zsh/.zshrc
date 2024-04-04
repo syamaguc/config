@@ -19,7 +19,7 @@ zsh_add_file "keybind.zsh"
 ##############################
 
 # for mise
-eval "$(~/.local/bin/mise activate zsh)"
+[ -f ~/.local/bin/mise ] && eval "$(~/.local/bin/mise activate zsh)"
 
 # bun completions
 [ -s "/Users/syamaguc/.bun/_bun" ] && source "/Users/syamaguc/.bun/_bun"
