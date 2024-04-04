@@ -3,6 +3,8 @@ ADDITIONAL = lazygit tmux alacritty ranger mise bin
 UBUNTU = regolith3 libskk
 ARCH_LINUX = x_arch i3 i3blocks picom rofi conky libskk dunst
 MAC_OS = yabai skhd sketchybar
+# For server
+SERVER = git zsh mise bin nvim
 
 fclean:
 	@stow -Dv */
@@ -16,6 +18,9 @@ keyboard:
 	@if [ "$(HOSTNAME)" = "ThinkPad-E14-Gen3" ]; then \
 		stow -v thinkpad; \
 	fi
+
+server:
+	stow -v $(SERVER)
 
 link: keyboard
 	$(eval UNAME_S := $(shell uname -s))
