@@ -1,9 +1,22 @@
 import = ["~/.config/alacritty/color.toml","~/.config/alacritty/keybinding.toml"]
 
+[env]
+TERM = "xterm-256color"
 
 [window]
-opacity = 0.8
+opacity = 0.95
 
 [font]
-size = 12
+size = 13
 normal = {family = "Hack Nerd Font"}
+
+[cursor.style]
+shape = "Beam"
+blinking = "Always"
+
+[cursor.vi_mode_style]
+shape = "Block"
+blinking = "Always"
+
+[colors.vi_mode_cursor]
+text = "#E78284"
