@@ -1,26 +1,39 @@
 #!/bin/bash
 
-# 壁紙に設定する画像が格納されているディレクトリのパスを指定
-WALLPAPER_DIR="$HOME/config/wallpaper"
+# 選択肢のリストを定義
+options=("nature" "minimal" "starwars" "weeb")
 
-# 指定したディレクトリからランダムにファイルを1つ選択
-SELECTED_WALLPAPER=$(find "$WALLPAPER_DIR" -type f | shuf -n 1)
+# 選択肢を表示
+echo "Select an option:"
 
-case "$(uname -s)" in
-Darwin)
-	osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \"$SELECTED_WALLPAPER\""
-	;;
+# 選択肢を順番に表示
+select opt in "${options[@]}"; do
+	echo "Your choice is $opt"
 
-Linux)
-	cat <<EOF >$HOME/config/regolith3/.config/regolith3/wallpaper.Xresources
+	WALLPAPER_DIR="$HOME/wallpaper/$opt/"
+
+	#WALLPAPER_DIR="$HOME/wallpaper/nature"
+
+	# 指定したディレクトリからランダムにファイルを1つ選択
+	SELECTED_WALLPAPER=$(find "$WALLPAPER_DIR" -type f | shuf -n 1)
+
+	echo $SELECTED_WALLPAPER
+	case "$(uname -s)" in
+	Darwin)
+		osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \"$SELECTED_WALLPAPER\""
+		;;
+
+	Linux)
+		cat <<EOF >$HOME/config/regolith3/.config/regolith3/wallpaper.Xresources
 regolith.lockscreen.wallpaper.file: $SELECTED_WALLPAPER
 regolith.wallpaper.file:            $SELECTED_WALLPAPER
 EOF
-	regolith-look refresh
-	;;
+		regolith-look refresh
+		;;
 
-CYGWIN* | MINGW32* | MSYS* | MINGW*) ;;
+	CYGWIN* | MINGW32* | MSYS* | MINGW*) ;;
 
-*) ;;
+	*) ;;
 
-esac
+	esac
+done
