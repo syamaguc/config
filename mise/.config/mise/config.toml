@@ -3,6 +3,7 @@ node = 'lts'
 deno = 'latest'
 python = "3.11.8"
 go = "1.22.1"
+bun = "latest"
 
 
 [tasks.python]
@@ -27,7 +28,7 @@ run = "sudo apt install bat && mkdir -p ~/.local/bin && ln -s /usr/bin/batcat ~/
 
 [tasks.setup]
 description = "Setup"
-depends = ["ghq","node", "python", "rust", "bat"]
+depends = ["ghq", "node", "python", "rust", "bat"]
 
 
 [settings]
