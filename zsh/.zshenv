@@ -5,6 +5,7 @@ path=(
   $HOME/.local/share/mise/shims(N-/)
   $HOME/.local/bin(N-/)
   $HOME/bin(N-/)
+  /snap/bin(N-/)
   $path
 )
 

@@ -20,11 +20,11 @@ run = "go install github.com/x-motemen/ghq@latest"
 
 [tasks.rust]
 description = "Install rust"
-run = "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
+run = "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs -y | sh"
 
 [tasks.bat]
 description = "Install bat"
-run = "sudo apt install bat && mkdir -p ~/.local/bin && ln -s /usr/bin/batcat ~/.local/bin/bat"
+run = "sudo apt install bat -y && mkdir -p ~/.local/bin && ln -s /usr/bin/batcat ~/.local/bin/bat"
 
 [tasks.setup]
 description = "Setup"
