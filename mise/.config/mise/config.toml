@@ -30,6 +30,10 @@ run = "sudo apt install bat -y && mkdir -p ~/.local/bin && ln -s /usr/bin/batcat
 description = "Install lazygit"
 run = "go install github.com/jesseduffield/lazygit@latest"
 
+[tasks.fzf]
+description = "install fzf"
+run = "git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install"
+
 [tasks.setup]
 description = "Setup"
 depends = ["ghq", "node", "python", "rust", "bat"]
