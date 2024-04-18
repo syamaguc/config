@@ -1,4 +1,0 @@
-tree
-neovim
-zsh
-tmux

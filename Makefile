@@ -23,6 +23,8 @@ show:
 rename:
 	python3 ./bin/bin/random_rename.py
 
+install:
+	@sudo xargs apt install -y < ./pkg/package.apt.txt
 
 link: show
 	# Symbolic link

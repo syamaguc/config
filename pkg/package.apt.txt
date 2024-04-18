@@ -1,4 +1,8 @@
-tree
-neovim
+make
+stow
 zsh
+tree
 tmux
+fzf
+ripgrep
+fd-find
