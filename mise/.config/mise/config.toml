@@ -26,6 +26,10 @@ run = "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
 description = "Install bat"
 run = "sudo apt install bat -y && mkdir -p ~/.local/bin && ln -s /usr/bin/batcat ~/.local/bin/bat"
 
+[tasks.lagygit]
+description = "Install lazygit"
+run = "go install github.com/jesseduffield/lazygit@latest"
+
 [tasks.setup]
 description = "Setup"
 depends = ["ghq", "node", "python", "rust", "bat"]
