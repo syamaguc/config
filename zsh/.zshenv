@@ -26,3 +26,5 @@ CYGWIN* | MINGW32* | MSYS* | MINGW*) ;;
 esac
 
 [ -f ~/.cargo/env ] && . "$HOME/.cargo/env"
+
+eval "$(ssh-agent -s)"
