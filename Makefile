@@ -14,6 +14,10 @@ fclean:
 	@stow -Dv */
 
 show:
+	#######################
+	#     Information     #
+	#######################
+
 	@echo "KERNEL: $(KERNEL)"
 	@echo "OS: $(UNAME_S)"
 	@echo "Architecture: $(UNAME_M)"
@@ -27,7 +31,10 @@ install:
 	@sudo xargs apt install -y < ./pkg/package.apt.txt
 
 link: show
-	# Symbolic link
+	#######################
+	#    synbolic link    #
+	#######################
+
 	@if [ "$(UNAME_S)" = "Linux" ]; then \
 		if [ "$(DISTRO)" = "ubuntu" ]; then \
 			stow -v $(COMMON) $(ADDITIONAL) $(UBUNTU); \
@@ -41,14 +48,18 @@ link: show
 	else \
 		echo "Not supported";\
 	fi
-	# Keyboard
+	#######################
+	#       keyboard      #
+	#######################
 	@if [ "$(HOSTNAME)" = "ThinkPad-E14-Gen3" ]; then \
 		echo "remap Key for Thinkpad"; \
 		stow -v thinkpad; \
 	else \
 		echo "Using HHKB"; \
 	fi
-	# WSL
+	#######################
+	#         WSL         #
+	#######################
 	@if echo "$(KERNEL)" | grep -q microsoft ; then \
 		echo "WSL Setup..."; \
 	fi
