@@ -28,7 +28,7 @@ run = "sudo apt install bat -y && mkdir -p ~/.local/bin && ln -s /usr/bin/batcat
 
 [tasks.pacman]
 description = "Install pacman packages"
-run = "sudo pacman -Syu bat neovim"
+run = "sudo pacman -Syu bat neovim --noconfirm"
 
 [tasks.lagygit]
 description = "Install lazygit"
