@@ -22,9 +22,13 @@ run = "go install github.com/x-motemen/ghq@latest"
 description = "Install rust"
 run = "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs -y | sh"
 
-[tasks.bat]
-description = "Install bat"
+[tasks.apt]
+description = "Install apt packages"
 run = "sudo apt install bat -y && mkdir -p ~/.local/bin && ln -s /usr/bin/batcat ~/.local/bin/bat"
+
+[tasks.pacman]
+description = "Install pacman packages"
+run = "sudo pacman -Syu bat neovim"
 
 [tasks.lagygit]
 description = "Install lazygit"
@@ -38,9 +42,13 @@ run = "git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/
 description = "Install tpm"
 run = "git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm"
 
-[tasks.setup]
-description = "Setup"
-depends = ["ghq", "node", "python", "rust", "bat"]
+[tasks.ubuntu]
+description = "Setup Ubuntu"
+depends = ["ghq", "node", "python", "rust", "apt"]
+
+[tasks.arch]
+description = "Setup Arch Linux"
+depends = ["ghq", "node", "python", "rust", "pacman"]
 
 
 [settings]
