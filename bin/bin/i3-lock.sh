@@ -7,6 +7,6 @@ BLUR="5x4"
 
 $SCREENSHOT
 convert $PICTURE -blur $BLUR $PICTURE
-i3lock -i $PICTURE
+i3lock -i $PICTURE -f
 rm -rf $PICTURE
-systemctl suspend
+#systemctl suspend

@@ -17,7 +17,7 @@ set $ws8 "8"
 set $ws9 "9"
 
 # set font
-font pango:Ricty Diminished 11
+font Hack Nerd Font 11
 
 # ==================================== #
 # => Startup Applications
@@ -27,11 +27,11 @@ exec_always --no-startup-id xmodmap ~/.Xmodmap
 exec_always --no-startup-id conky -d -c $HOME/.config/conky/conky.conf
 exec_always --no-startup-id conky -c $HOME/.config/conky/network.conf
 exec_always --no-startup-id picom -b
-exec_always --no-startup-id dropbox autostart
-exec_always --no-startup-id fcitx5 -r
+#exec_always --no-startup-id dropbox autostart
+#exec_always --no-startup-id fcitx5 -r
 exec_always --no-startup-id autotiling -w 1 3 5
 exec_always --no-startup-id nm-applet --indicator
-exec_always --no-startup-id feh --bg-fill --randomize $HOME/Dropbox/Wallpaper/*
+exec_always --no-startup-id feh --bg-fill --randomize $HOME/wallpaper/**/*
 
 
 # ==================================== #
@@ -39,13 +39,13 @@ exec_always --no-startup-id feh --bg-fill --randomize $HOME/Dropbox/Wallpaper/*
 # ==================================== #
 
 # enter fullscreen mode for the focused container
-bindsym $superL+Escape fullscreen toggle
+bindsym $altL+Escape fullscreen toggle
 
 # toggle tiling / floating
-bindsym $superL+space floating toggle
+#bindsym $superL+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $superL+Shift+space focus mode_toggle
+#bindsym $superL+Shift+space focus mode_toggle
 
 # Use Mouse+$superL to drag floating windows to their wanted position
 floating_modifier $superL
@@ -97,24 +97,23 @@ bindsym --release $superL+p exec scrot -s ~/Pictures/Screenshot/%b%d-%H%M%S.png
 bindsym --release $superL+Shift+p exec gyazo
 
 # kill focused window
-bindsym $superL+Shift+d kill
+bindsym $superL+Shift+q kill
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $superL+Shift+r reload;restart
 
 # start a terminal
-bindsym $superL+Return exec i3-sensible-terminal
+bindsym $superL+Return exec alacritty
 
 # start dmenu & rofi (a program launcher)
-bindsym $altL+Shift+space exec rofi -lines 12 -padding 18 -width 60 -location 0 -show window -sidebar-mode -columns 3 -font 'Ricty Diminished 18'
-bindsym $altL+space exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Ricty Diminished 18'
+bindsym $superL+space exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Hack Nerd Font 18'
+bindsym $superL+Shift+space exec rofi -lines 12 -padding 18 -width 60 -location 0 -show window -sidebar-mode -columns 3 -font 'Hack Nerd Font 18'
 
 # shutdown menu in rofi
 bindsym $altL+Shift+q exec bash $HOME/bin/power.sh
 
 # common apps keybinds
-bindsym $superL+w exec google-chrome-stable
-bindsym $superL+Shift+w exec google-chrome-stable --incognito
+bindsym $superL+Shift+Return exec firefox
 
 # ==================================== #
 # => Resize mode settings
@@ -135,7 +134,8 @@ mode "resize" {
 # => Bar Setting
 # ==================================== #
 bar {
-  		colors {
+  font xft:Hack Nerd Font, FontAwesome 14
+  colors {
   		  background #282A36
   		  statusline #F8F8F2
   		  separator  #44475A
@@ -145,9 +145,7 @@ bar {
   		  inactive_workspace #282A36 #282A36 #BFBFBF
   		  urgent_workspace   #FF5555 #FF5555 #F8F8F2
   		  binding_mode       #FF5555 #FF5555 #F8F8F2
-  		}
-        font pango:Ricty Diminished 14
-        status_command i3blocks
+  }
 }
 
 # colour of border, background, text, indicator, and child_border
@@ -180,4 +178,3 @@ for_window [class="Fcitx-config-gtk3"] floating enable
 smart_gaps on
 smart_borders on
 gaps inner 10
-gaps outer 5
