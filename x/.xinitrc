@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # start up program in .xprofile
-[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
+[ -f ~/.Xmodmap ] && xmodmap ~/.Xmodmap
 [ -f ~/.xprofile ] && source ~/.xprofile
 [ -f ~/.profile ] && source ~/.profile
 
