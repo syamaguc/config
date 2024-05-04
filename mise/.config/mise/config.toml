@@ -8,7 +8,7 @@ bun = "latest"
 
 [tasks.python]
 description = "Install neovim & pynvim @pip"
-run = "pip install -U pip && pip install neovim pynvim"
+run = "pip install -U pip && pip install neovim pynvim i3ipc"
 
 [tasks.node]
 description = "Install neovim @npm"
