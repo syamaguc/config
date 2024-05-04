@@ -144,6 +144,8 @@ Linux)
 	# output pacman packages
 	alias pacman-list="pacman -Qqen"
 
+	# output paru packages
+  alias paru-list="paru -Qqem"
 	# output yay packages
 	alias yay-list="pacman -Qqem"
 
