@@ -50,6 +50,10 @@ run = "git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm"
 description = "Setup Ubuntu"
 depends = ["ghq", "node", "python", "rust", "apt", "fzf", "tpm"]
 
+[tasks.wallpaper]
+description = "Set wallpaper"
+run = "git clone https://github.com/dracula/wallpaper.git ~/wallpaper"
+
 [tasks.arch]
 description = "Setup Arch Linux"
 depends = ["ghq", "node", "python", "rust", "pacman", "fzf", "tpm"]
