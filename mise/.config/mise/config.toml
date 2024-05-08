@@ -54,9 +54,23 @@ depends = ["ghq", "node", "python", "rust", "apt", "fzf", "tpm"]
 description = "Set wallpaper"
 run = "git clone https://github.com/dracula/wallpaper.git ~/wallpaper"
 
+[tasks.paru]
+description = "Install paru"
+run = "git clone https://aur.archlinux.org/paru.git ~/paru && cd ~/paru && makepkg -si"
+
 [tasks.arch]
 description = "Setup Arch Linux"
-depends = ["ghq", "node", "python", "rust", "pacman", "fzf", "tpm", "wallpaper"]
+depends = [
+  "ghq",
+  "node",
+  "python",
+  "rust",
+  "pacman",
+  "paru",
+  "fzf",
+  "tpm",
+  "wallpaper",
+]
 
 
 [settings]
