@@ -1,7 +1,7 @@
 COMMON = git zsh nvim
 ADDITIONAL = lazygit tmux alacritty ranger mise bin
 UBUNTU = regolith3 libskk
-ARCH_LINUX = x i3 i3blocks picom rofi conky libskk dunst
+ARCH_LINUX = x i3 i3blocks picom rofi conky libskk dunst greenclip
 MAC_OS = yabai skhd sketchybar
 	
 KERNEL := $(shell uname -r)

@@ -32,6 +32,8 @@ exec_always --no-startup-id picom -b
 exec_always --no-startup-id autotiling -w 1 3 5
 exec_always --no-startup-id nm-applet --indicator
 exec_always --no-startup-id feh --bg-fill --randomize $HOME/wallpaper/**/*
+exec_always --no-startup-id dunst
+#exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 
 # ==================================== #
@@ -39,7 +41,7 @@ exec_always --no-startup-id feh --bg-fill --randomize $HOME/wallpaper/**/*
 # ==================================== #
 
 # enter fullscreen mode for the focused container
-bindsym $altL+Escape fullscreen toggle
+bindsym $superL+Escape fullscreen toggle
 
 # toggle tiling / floating
 #bindsym $superL+space floating toggle
@@ -107,7 +109,10 @@ bindsym $superL+Return exec alacritty
 
 # start dmenu & rofi (a program launcher)
 bindsym $superL+space exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Hack Nerd Font 18'
-bindsym $superL+Shift+space exec rofi -lines 12 -padding 18 -width 60 -location 0 -show window -sidebar-mode -columns 3 -font 'Hack Nerd Font 18'
+
+# clipboard tool
+exec --no-startup-id greenclip daemon>/dev/null
+bindsym $superL+Shift+space exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard
 
 # shutdown menu in rofi
 bindsym $altL+Shift+q exec bash $HOME/bin/power.sh
@@ -126,9 +131,24 @@ mode "resize" {
         bindsym Down resize grow height 50 px or 50 ppt
         bindsym Up resize shrink height 50 px or 50 ppt
         bindsym Right resize grow width 50 px or 50 ppt
-	# back to normal: Escape
+	      # back to normal: Escape
         bindsym Escape mode "default"
 }
+
+# ==================================== #
+# => Layout settings
+# ==================================== #
+set $layout "layout [h: splith] [v: splitv] [s: stacking] [t: tabbed] [f: floating toggle]"
+bindsym $superL+w mode $layout
+mode $layout {
+	bindsym Escape mode "default"
+	bindsym h layout splith; mode "default"
+	bindsym v layout splitv; mode "default"
+	bindsym s layout stacking; mode "default"
+	bindsym t layout tabbed; mode "default"
+	bindsym f floating toggle; mode "default"
+}
+
 
 # ==================================== #
 # => Bar Setting
@@ -146,6 +166,7 @@ bar {
   		  urgent_workspace   #FF5555 #FF5555 #F8F8F2
   		  binding_mode       #FF5555 #FF5555 #F8F8F2
   }
+  status_command i3blocks -c $HOME/.config/i3blocks/config
 }
 
 # colour of border, background, text, indicator, and child_border
