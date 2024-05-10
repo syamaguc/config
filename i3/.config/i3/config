@@ -127,19 +127,18 @@ bindsym $superL+r mode "resize"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        bindsym Left resize shrink width 50 px or 50 ppt
-        bindsym Down resize grow height 50 px or 50 ppt
-        bindsym Up resize shrink height 50 px or 50 ppt
-        bindsym Right resize grow width 50 px or 50 ppt
-	      # back to normal: Escape
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
         bindsym Escape mode "default"
 }
 
 # ==================================== #
-# => Layout settings
+# => Layout mode settings
 # ==================================== #
 set $layout "layout [h: splith] [v: splitv] [s: stacking] [t: tabbed] [f: floating toggle]"
-bindsym $superL+w mode $layout
+bindsym $superL+o mode $layout
 mode $layout {
 	bindsym Escape mode "default"
 	bindsym h layout splith; mode "default"
@@ -198,4 +197,12 @@ for_window [class="Fcitx-config-gtk3"] floating enable
 # i3-gaps
 smart_gaps on
 smart_borders on
-gaps inner 10
+gaps inner 7
+
+gaps outer 7
+#gaps horizontal 5
+#gaps vertical 5
+#gaps top 5
+#gaps bottom 5
+#gaps left 5
+#gaps right 5
