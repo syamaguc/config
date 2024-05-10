@@ -25,7 +25,8 @@ font Hack Nerd Font 11
 
 exec_always --no-startup-id xmodmap ~/.Xmodmap
 exec_always --no-startup-id conky -d -c $HOME/.config/conky/conky.conf
-exec_always --no-startup-id conky -c $HOME/.config/conky/network.conf
+exec_always --no-startup-id conky -d -c $HOME/.config/conky/network.conf
+exec_always --no-startup-id conky -d -c $HOME/.config/conky/news.conf
 exec_always --no-startup-id picom -b
 #exec_always --no-startup-id dropbox autostart
 #exec_always --no-startup-id fcitx5 -r
