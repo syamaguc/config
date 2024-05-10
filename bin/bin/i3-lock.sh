@@ -1,5 +1,6 @@
 #!/bin/bash
 
+sleep 2
 PICTURE=$HOME/tmp/i3lock.png
 SCREENSHOT="scrot $PICTURE"
 
