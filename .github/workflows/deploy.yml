@@ -18,14 +18,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - name: setup script
+      - name: setup
         run: |
-          bash ./script/setup.sh
-        shell: bash
-
-      - name: stow link
-        run: |
+          sudo pacman -Syu git stow
+          make install
           make link
+          make setup
         shell: bash
 
   os-test:
@@ -38,11 +36,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
-      - name: Setup script
+      - name: Setup
         run: |
-          bash ./script/setup.sh
-        shell: bash
-      - name: stow link
-        run: |
-          make link
+          echo "WIP"
         shell: bash
