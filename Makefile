@@ -14,7 +14,6 @@ show:
 	#######################
 	#     Information     #
 	#######################
-
 	@echo "KERNEL: $(KERNEL)"
 	@echo "OS: $(UNAME_S)"
 	@echo "Architecture: $(UNAME_M)"
@@ -43,7 +42,6 @@ link: show
 	#######################
 	#    synbolic link    #
 	#######################
-
 	@if [ "$(UNAME_S)" = "Linux" ]; then \
 		if [ "$(DISTRO)" = "ubuntu" ]; then \
 			stow -v $(COMMON) $(ADDITIONAL) $(UBUNTU); \
@@ -73,8 +71,13 @@ link: show
 		echo "WSL Setup..."; \
 	fi
 
+setup:
+	@curl https://mise.run | sh
+	@~/.local/bin/mise --version
+	@mise install
+	@mise run common
+
 fclean:
 	@stow -Dv */
-
 
 .PHONY: fclean link show keyboard

@@ -5,7 +5,6 @@ python = "3.11.8"
 go = "1.22.1"
 bun = "latest"
 
-
 [tasks.python]
 description = "Install neovim & pynvim @pip"
 run = "pip install -U pip && pip install neovim pynvim i3ipc"
@@ -14,25 +13,13 @@ run = "pip install -U pip && pip install neovim pynvim i3ipc"
 description = "Install neovim @npm"
 run = "npm install -g neovim"
 
-[tasks.ghq]
-description = "Install ghq"
-run = "go install github.com/x-motemen/ghq@latest"
-
 [tasks.rust]
 description = "Install rust"
 run = "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs -y | sh"
 
-[tasks.apt]
-description = "Install apt packages"
-run = "sudo apt install bat -y && mkdir -p ~/.local/bin && ln -s /usr/bin/batcat ~/.local/bin/bat"
-
-[tasks.pacman]
-description = "Install pacman packages"
-run = "sudo pacman -Syu bat neovim picom i3 dunst rofi conky --noconfirm"
-
-[tasks.alacritty]
-description = "Install alacritty deps"
-run = "sudo pacman -Syu cmake freetype2 fontconfig pkg-config make libxcb libxkbcommon python --noconfirm && git clone https://github.com/alacritty/alacritty.git && cd alacritty && rustup override set stable && rustup update stable && cargo build --release"
+[tasks.ghq]
+description = "Install ghq"
+run = "go install github.com/x-motemen/ghq@latest"
 
 [tasks.lagygit]
 description = "Install lazygit"
@@ -46,32 +33,43 @@ run = "git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/
 description = "Install tpm"
 run = "git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm"
 
-[tasks.ubuntu]
-description = "Setup Ubuntu"
-depends = ["ghq", "node", "python", "rust", "apt", "fzf", "tpm"]
-
 [tasks.wallpaper]
 description = "Set wallpaper"
 run = "git clone https://github.com/dracula/wallpaper.git ~/wallpaper"
+
+[tasks.common]
+description = "For all Operating Systems"
+depends = [
+  "python",
+  "node",
+  "rust",
+  "ghq",
+  "lagygit",
+  "fzf",
+  "tpm",
+  "wallpeper",
+]
+
+[tasks.apt]
+description = "Install apt packages"
+run = "sudo apt install bat -y && mkdir -p ~/.local/bin && ln -s /usr/bin/batcat ~/.local/bin/bat"
+
+[tasks.pacman]
+description = "Install pacman packages"
+run = "sudo pacman -Syu bat neovim picom i3 dunst rofi conky --noconfirm"
+
 
 [tasks.paru]
 description = "Install paru"
 run = "git clone https://aur.archlinux.org/paru.git ~/paru && cd ~/paru && makepkg -si"
 
+[tasks.alacritty]
+description = "Install alacritty deps"
+run = "sudo pacman -Syu cmake freetype2 fontconfig pkg-config make libxcb libxkbcommon python --noconfirm && git clone https://github.com/alacritty/alacritty.git && cd alacritty && rustup override set stable && rustup update stable && cargo build --release"
+
 [tasks.arch]
 description = "Setup Arch Linux"
-depends = [
-  "ghq",
-  "node",
-  "python",
-  "rust",
-  "pacman",
-  "paru",
-  "fzf",
-  "tpm",
-  "wallpaper",
-]
-
+depends = ["pacman", "paru", "alacritty"]
 
 [settings]
 experimental = true
