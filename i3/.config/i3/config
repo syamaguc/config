@@ -121,6 +121,8 @@ bindsym $altL+Shift+q exec bash $HOME/bin/power.sh
 
 # common apps keybinds
 bindsym $superL+Shift+Return exec firefox
+# Private Window
+bindsym $superL+Shift+w exec firefox -private-window
 
 # ==================================== #
 # => Resize mode settings
