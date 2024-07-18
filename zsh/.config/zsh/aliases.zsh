@@ -110,8 +110,10 @@ fim() { nvim $(fzf-tmux --height 40% --reverse --border --preview 'bat --color="
 function editor() {
     if command -v nvim > /dev/null; then
         nvim "$@"
-    else
+    elif command -v vim > /dev/null; then
         vim "$@"
+    else
+        vi "$@"
     fi
 }
 
