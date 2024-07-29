@@ -16,6 +16,9 @@ return {
             ]],
         false
       )
+      vim.api.nvim_create_user_command("DenopsCacheReload", function()
+        vim.cmd([[call denops#cache#update(#{reload: v:true})]])
+      end, { bang = true })
     end,
   },
 
