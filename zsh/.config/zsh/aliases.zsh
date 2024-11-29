@@ -64,6 +64,7 @@ alias gls='git log --stat'
 alias glo='git log --oneline'
 alias glp='git log -p'
 alias glog="git log --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn%x09%Creset%s' | tail -1 && echo '' && git status -s -b"
+ghq-update() { ghq list | ghq get --update --parallel; }
 
 # --------------------------
 # Docker
