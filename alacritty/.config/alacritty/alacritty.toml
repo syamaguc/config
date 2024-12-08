@@ -1,9 +1,3 @@
-#[general]
-live_config_reload = true
-import = [
-  "~/.config/alacritty/color.toml",
-  "~/.config/alacritty/keybinding.toml",
-]
 
 [env]
 TERM = "xterm-256color"
@@ -25,3 +19,11 @@ blinking = "Always"
 
 [colors.vi_mode_cursor]
 text = "#E78284"
+
+[general]
+#[general]
+live_config_reload = true
+import = [
+  "~/.config/alacritty/color.toml",
+  "~/.config/alacritty/keybinding.toml",
+]
