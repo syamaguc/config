@@ -1,6 +1,5 @@
-#[general]
-live_config_reload = true
-import = [
+general.live_config_reload = true
+general.import = [
   "~/.config/alacritty/color.toml",
   "~/.config/alacritty/keybinding.toml",
 ]
