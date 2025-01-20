@@ -31,6 +31,3 @@ blinking = "Always"
 
 [colors.vi_mode_cursor]
 text = "#E78284"
-
-[terminal]
-shell = { program = "/bin/zsh", args = ["-l", "-c", "tmux a -t 0 || tmux"] }
