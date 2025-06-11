@@ -4,15 +4,16 @@
 
 export ZDOTDIR=$HOME/.config/zsh
 
-typeset -U path
-path=(
-  $HOME/.local/share/mise/shims(N-/)
-  $HOME/.local/bin(N-/)
-  $HOME/bin(N-/)
-  $HOME/snap/bin(N-/)
-  /snap/bin(N-/)
-  $path
-)
+#typeset -U path
+#path=(
+#  $HOME/.local/share/mise/shims(N-/)
+#  $HOME/.local/bin(N-/)
+#  $HOME/bin(N-/)
+#  $HOME/snap/bin(N-/)
+#  $HOME/.yarn/bin(N-/)
+#  /snap/bin(N-/)
+#  $path
+#)
 
 # OS specific settings
 case "$(uname -s)" in

@@ -1,3 +1,15 @@
+
+typeset -U path
+path=(
+  $HOME/.local/share/mise/shims(N-/)
+  $HOME/.local/bin(N-/)
+  $HOME/bin(N-/)
+  $HOME/snap/bin(N-/)
+  $HOME/.yarn/bin(N-/)
+  /snap/bin(N-/)
+  $path
+)
+
 ##############################
 #    Load setting files
 ##############################

@@ -4,6 +4,7 @@ deno = 'latest'
 python = "3.11.8"
 go = "1.22.1"
 bun = "latest"
+yarn = "latest"
 
 [tasks.python]
 description = "Install neovim & pynvim @pip"
