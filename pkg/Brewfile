@@ -28,5 +28,4 @@ brew "yarn"
 
 cask "font-devicons"
 cask "font-hack-nerd-font"
-cask "font-noto-nerd-font"
 cask "font-ricty-diminished"

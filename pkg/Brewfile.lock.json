@@ -906,12 +906,6 @@
           "full_name": "font-hack-nerd-font"
         }
       },
-      "font-noto-nerd-font": {
-        "version": "3.3.0",
-        "options": {
-          "full_name": "font-noto-nerd-font"
-        }
-      },
       "font-ricty-diminished": {
         "version": "4.1.1",
         "options": {
